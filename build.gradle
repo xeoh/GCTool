@@ -1,0 +1,30 @@
+allprojects {
+  group 'edu.kaist.algo'
+  version '0.1.0-SNAPSHOT'
+
+  apply plugin: 'java'
+  apply plugin: 'checkstyle'
+
+  checkstyle {
+    configFile = file("${rootDir}/config/google_checks.xml")
+    toolVersion = "6.17"
+  }
+}
+
+subprojects {
+  buildscript {
+    repositories {
+      jcenter()
+    }
+  }
+
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'com.google.guava:guava:19.0'
+    testCompile 'junit:junit:4.12'
+  }
+}

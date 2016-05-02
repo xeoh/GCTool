@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "edu.kaist.algo.model";
+option java_multiple_files = true;
+
+message GcEvent {
+    uint64 timestamp = 1;
+    uint32 thread = 2;
+}

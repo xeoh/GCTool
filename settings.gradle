@@ -1,0 +1,2 @@
+include 'common', 'parser', 'analyzer', 'api', 'cli-client'
+rootProject.name = 'GCTool'

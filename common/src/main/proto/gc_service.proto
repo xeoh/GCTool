@@ -6,7 +6,7 @@ option java_package = "edu.kaist.algo.client";
 // The client streams the file contents to the server,
 // and requests for the result status.
 service GcService {
-  rpc InfoUpload (FileInfo) returns (FileUploadResult)
+  rpc InfoUpload (FileInfo) returns (FileUploadResult) {}
   rpc LogUpload (stream UploadRequest) returns (UploadResult) {}
 }
 

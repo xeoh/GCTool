@@ -1,0 +1,1108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hotspot_log version='160 1' process='14777' time_ms='1462186641115'>
+<vm_version>
+<name>
+Java HotSpot(TM) 64-Bit Server VM
+</name>
+<release>
+25.74-b02
+</release>
+<info>
+Java HotSpot(TM) 64-Bit Server VM (25.74-b02) for bsd-amd64 JRE (1.8.0_74-b02), built on Jan 29 2016 15:32:34 by &quot;java_re&quot; with gcc 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
+</info>
+</vm_version>
+<vm_arguments>
+<args>
+-Xmx100m -Xms100m -XX:+UnlockDiagnosticVMOptions -XX:+UseConcMarkSweepGC -XX:+LogVMOutput -XX:+PrintGCDetails -XX:+PrintGCTimeStamps 
+</args>
+<command>
+dacapo-9.12-bach.jar tradesoap -n 5
+</command>
+<launcher>
+SUN_STANDARD
+</launcher>
+<properties>
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.version=25.74-b02
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+java.vm.info=mixed mode, sharing
+java.ext.dirs=/Users/ducky/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+java.endorsed.dirs=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/endorsed
+sun.boot.library.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib
+java.library.path=/Users/ducky/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre
+java.class.path=dacapo-9.12-bach.jar
+sun.boot.class.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/jre/classes
+java.vm.specification.vendor=Oracle Corporation
+java.vm.specification.version=1.8
+java.vm.vendor=Oracle Corporation
+sun.java.command=dacapo-9.12-bach.jar tradesoap -n 5
+sun.java.launcher=SUN_STANDARD
+</properties>
+</vm_arguments>
+<tty>
+<blob name='MethodHandlesAdapterBlob' size='32000'>
+<sect index='1' size='32000' free='31628'/>
+</blob>
+<writer thread='3079'/>
+<dependency_failed type='leaf_type' ctxk='java/util/zip/CRC32' witness='sun/util/calendar/ZoneInfoFile$Checksum' stamp='2.324'/>
+<dependency_failed type='leaf_type' ctxk='java/util/zip/CRC32' witness='sun/util/calendar/ZoneInfoFile$Checksum' stamp='2.324'/>
+<dependency_failed type='leaf_type' ctxk='java/util/zip/CRC32' witness='sun/util/calendar/ZoneInfoFile$Checksum' stamp='2.324'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/io/DataInput' x='java/io/DataInputStream readUnsignedShort ()I' witness='java/io/DataInput' stamp='2.422'/>
+<writer thread='11779'/>
+2.716: [GC (Allocation Failure) 2.716: [ParNew: 27328K-&gt;3392K(30720K), 0.0117707 secs] 27328K-&gt;4125K(99008K), 0.0119095 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='3079'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='com/sun/istack/FinalArrayList' stamp='2.832'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='com/sun/istack/FinalArrayList' stamp='2.832'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='com/sun/istack/FinalArrayList' stamp='2.832'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='com/sun/istack/FinalArrayList' stamp='2.832'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='com/sun/istack/FinalArrayList' stamp='2.832'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='com/sun/istack/FinalArrayList' stamp='2.832'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='com/sun/istack/FinalArrayList' stamp='2.832'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='com/sun/istack/FinalArrayList' stamp='2.832'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList' witness='com/sun/istack/FinalArrayList' stamp='2.832'/>
+<dependency_failed type='leaf_type' ctxk='java/lang/ThreadLocal' witness='com/sun/xml/bind/v2/ClassFactory$1' stamp='2.974'/>
+<dependency_failed type='leaf_type' ctxk='java/lang/ThreadLocal' witness='com/sun/xml/bind/v2/ClassFactory$1' stamp='2.974'/>
+<dependency_failed type='leaf_type' ctxk='java/lang/ThreadLocal' witness='com/sun/xml/bind/v2/ClassFactory$1' stamp='2.974'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/lang/Exception' x='java/lang/Throwable fillInStackTrace ()Ljava/lang/Throwable;' witness='com/sun/org/apache/xerces/internal/impl/XMLEntityScanner$1' stamp='3.219'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/lang/Throwable' x='java/lang/Throwable fillInStackTrace ()Ljava/lang/Throwable;' witness='com/sun/org/apache/xerces/internal/impl/XMLEntityScanner$1' stamp='3.219'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/lang/Throwable' x='java/lang/Throwable fillInStackTrace ()Ljava/lang/Throwable;' witness='com/sun/org/apache/xerces/internal/impl/XMLEntityScanner$1' stamp='3.219'/>
+<writer thread='11779'/>
+3.454: [GC (Allocation Failure) 3.454: [ParNew: 30720K-&gt;3391K(30720K), 0.0205949 secs] 31453K-&gt;6391K(99008K), 0.0207077 secs] [Times: user=0.05 sys=0.01, real=0.02 secs] 
+<writer thread='3079'/>
+<dependency_failed type='leaf_type' ctxk='net/sf/cglib/core/ClassEmitter' witness='net/sf/cglib/reflect/FastClassEmitter' stamp='3.518'/>
+<writer thread='21511'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/net/URLStreamHandler' x='java/net/URLStreamHandler getDefaultPort ()I' witness='sun/net/www/protocol/http/Handler' stamp='3.593'/>
+<dependency_failed type='leaf_type' ctxk='java/io/BufferedReader' witness='java/io/LineNumberReader' stamp='3.649'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/lang/ThreadLocal' x='java/lang/ThreadLocal getMap (Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;' witness='java/lang/InheritableThreadLocal' stamp='3.654'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/lang/ThreadLocal' x='java/lang/ThreadLocal getMap (Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;' witness='java/lang/InheritableThreadLocal' stamp='3.654'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/lang/ThreadLocal' x='java/lang/ThreadLocal getMap (Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;' witness='java/lang/InheritableThreadLocal' stamp='3.654'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/lang/ThreadLocal' x='java/lang/ThreadLocal getMap (Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;' witness='java/lang/InheritableThreadLocal' stamp='3.654'/>
+<dependency_failed type='leaf_type' ctxk='java/util/Properties' witness='java/security/Provider' stamp='3.656'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList$Itr' witness='java/util/ArrayList$ListItr' stamp='3.689'/>
+<dependency_failed type='leaf_type' ctxk='java/util/ArrayList$Itr' witness='java/util/ArrayList$ListItr' stamp='3.689'/>
+<writer thread='11779'/>
+3.996: [GC (Allocation Failure) 3.996: [ParNew: 30719K-&gt;3392K(30720K), 0.0103607 secs] 33719K-&gt;8655K(99008K), 0.0104549 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+4.524: [GC (Allocation Failure) 4.524: [ParNew: 30720K-&gt;3391K(30720K), 0.0106111 secs] 35983K-&gt;10525K(99008K), 0.0106971 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='3079'/>
+<dependency_failed type='unique_concrete_method' ctxk='javax/xml/stream/XMLStreamReader' x='com/ctc/wstx/sr/BasicStreamReader getTextCharacters ()[C' witness='javax/xml/stream/XMLStreamReader' stamp='4.660'/>
+<writer thread='21511'/>
+<dependency_failed type='leaf_type' ctxk='java/security/cert/Certificate' witness='java/security/cert/X509Certificate' stamp='4.669'/>
+<dependency_failed type='leaf_type' ctxk='java/security/cert/Certificate' witness='java/security/cert/X509Certificate' stamp='4.669'/>
+<writer thread='11779'/>
+4.769: [Full GC (System.gc()) 4.770: [CMS: 7133K-&gt;7996K(68288K), 0.0488690 secs] 26334K-&gt;7996K(99008K), [Metaspace: 19628K-&gt;19628K(1067008K)], 0.0495269 secs] [Times: user=0.10 sys=0.00, real=0.05 secs] 
+<writer thread='21511'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/ArrayList' x='java/util/ArrayList add (Ljava/lang/Object;)Z' witness='javax/management/AttributeList' stamp='4.830'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/ArrayList' x='java/util/ArrayList add (Ljava/lang/Object;)Z' witness='javax/management/AttributeList' stamp='4.830'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/ArrayList' x='java/util/ArrayList add (Ljava/lang/Object;)Z' witness='javax/management/AttributeList' stamp='4.830'/>
+<dependency_failed type='leaf_type' ctxk='java/io/FileOutputStream' witness='java/net/SocketOutputStream' stamp='4.864'/>
+<dependency_failed type='leaf_type' ctxk='java/io/FileOutputStream' witness='java/net/SocketOutputStream' stamp='4.864'/>
+<dependency_failed type='leaf_type' ctxk='java/io/FileOutputStream' witness='java/net/SocketOutputStream' stamp='4.864'/>
+<dependency_failed type='leaf_type' ctxk='java/io/FileOutputStream' witness='java/net/SocketOutputStream' stamp='4.864'/>
+<dependency_failed type='leaf_type' ctxk='java/io/FileOutputStream' witness='java/net/SocketOutputStream' stamp='4.864'/>
+<dependency_failed type='leaf_type' ctxk='java/io/FileOutputStream' witness='java/net/SocketOutputStream' stamp='4.864'/>
+<dependency_failed type='leaf_type' ctxk='java/io/FileInputStream' witness='java/net/SocketInputStream' stamp='4.876'/>
+<dependency_failed type='leaf_type' ctxk='java/io/FileInputStream' witness='java/net/SocketInputStream' stamp='4.876'/>
+<writer thread='18947'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/ArrayList' x='java/util/ArrayList add (Ljava/lang/Object;)Z' witness='javax/management/AttributeList' stamp='4.890'/>
+<writer thread='11779'/>
+5.269: [GC (Allocation Failure) 5.269: [ParNew: 27328K-&gt;3233K(30720K), 0.0052464 secs] 35324K-&gt;11229K(99008K), 0.0053463 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
+5.587: [GC (Allocation Failure) 5.587: [ParNew: 30561K-&gt;3391K(30720K), 0.0102665 secs] 38557K-&gt;14124K(99008K), 0.0103606 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+5.880: [GC (Allocation Failure) 5.880: [ParNew: 30719K-&gt;3254K(30720K), 0.0092186 secs] 41452K-&gt;16003K(99008K), 0.0093203 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+5.890: [GC (GCLocker Initiated GC) 5.890: [ParNew: 3254K-&gt;0K(30720K), 0.0065141 secs] 16003K-&gt;15009K(99008K), 0.0065877 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='21511'/>
+<dependency_failed type='unique_concrete_method' ctxk='sun/nio/cs/ArrayDecoder' x='sun/nio/cs/UTF_8$Decoder decode ([BII[C)I' witness='sun/nio/cs/ArrayDecoder' stamp='6.067'/>
+<dependency_failed type='unique_concrete_method' ctxk='sun/nio/cs/ArrayDecoder' x='sun/nio/cs/UTF_8$Decoder decode ([BII[C)I' witness='sun/nio/cs/ArrayDecoder' stamp='6.067'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/nio/charset/CharsetEncoder' x='sun/nio/cs/UTF_8$Encoder' witness='sun/nio/cs/ISO_8859_1$Encoder' stamp='6.068'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/nio/charset/CharsetEncoder' x='sun/nio/cs/UTF_8$Encoder' witness='sun/nio/cs/ISO_8859_1$Encoder' stamp='6.068'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/nio/charset/CharsetEncoder' x='sun/nio/cs/UTF_8$Encoder' witness='sun/nio/cs/ISO_8859_1$Encoder' stamp='6.069'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/nio/charset/CharsetEncoder' x='sun/nio/cs/UTF_8$Encoder' witness='sun/nio/cs/ISO_8859_1$Encoder' stamp='6.069'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.077'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.077'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.077'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.077'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.077'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.077'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.077'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.078'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.078'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.078'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.078'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.078'/>
+<writer thread='18435'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;' witness='org/mortbay/jetty/servlet/PathMap' stamp='6.167'/>
+<writer thread='11779'/>
+6.193: [GC (Allocation Failure) 6.193: [ParNew: 27328K-&gt;2140K(30720K), 0.0057827 secs] 42337K-&gt;17150K(99008K), 0.0059117 secs] [Times: user=0.02 sys=0.01, real=0.01 secs] 
+<writer thread='21511'/>
+<dependency_failed type='leaf_type' ctxk='java/io/ByteArrayInputStream' witness='sun/security/util/DerInputBuffer' stamp='6.256'/>
+<dependency_failed type='leaf_type' ctxk='java/io/ByteArrayInputStream' witness='sun/security/util/DerInputBuffer' stamp='6.256'/>
+<dependency_failed type='no_finalizable_subclasses' ctxk='java/util/Hashtable' witness='sun/security/ssl/SunJSSE' stamp='6.403'/>
+<dependency_failed type='no_finalizable_subclasses' ctxk='java/util/Dictionary' witness='sun/security/ssl/SunJSSE' stamp='6.403'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/jar/JarFile getJarEntry (Ljava/lang/String;)Ljava/util/jar/JarEntry;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/jar/JarFile getJarEntry (Ljava/lang/String;)Ljava/util/jar/JarEntry;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/jar/JarFile getJarEntry (Ljava/lang/String;)Ljava/util/jar/JarEntry;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/jar/JarFile getJarEntry (Ljava/lang/String;)Ljava/util/jar/JarEntry;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/zip/ZipFile getName ()Ljava/lang/String;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/jar/JarFile getJarEntry (Ljava/lang/String;)Ljava/util/jar/JarEntry;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/zip/ZipFile getName ()Ljava/lang/String;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/jar/JarFile getJarEntry (Ljava/lang/String;)Ljava/util/jar/JarEntry;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/jar/JarFile getInputStream (Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/jar/JarFile getJarEntry (Ljava/lang/String;)Ljava/util/jar/JarEntry;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='6.775'/>
+<writer thread='11779'/>
+6.783: [GC (Allocation Failure) 6.783: [ParNew: 29468K-&gt;3392K(30720K), 0.0087093 secs] 44478K-&gt;20170K(99008K), 0.0088851 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='81411'/>
+<dependency_failed type='leaf_type' ctxk='java/util/Date' witness='java/sql/Date' stamp='6.905'/>
+<dependency_failed type='leaf_type' ctxk='java/math/BigInteger' witness='org/apache/axis/types/NonPositiveInteger' stamp='6.933'/>
+<dependency_failed type='leaf_type' ctxk='java/math/BigInteger' witness='org/apache/axis/types/NonPositiveInteger' stamp='6.933'/>
+<writer thread='11779'/>
+7.087: [GC (Allocation Failure) 7.087: [ParNew: 30720K-&gt;3392K(30720K), 0.0096726 secs] 47498K-&gt;22338K(99008K), 0.0098288 secs] [Times: user=0.04 sys=0.01, real=0.01 secs] 
+7.342: [GC (Allocation Failure) 7.342: [ParNew: 30720K-&gt;2847K(30720K), 0.0079183 secs] 49666K-&gt;23428K(99008K), 0.0080877 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+7.351: [GC (CMS Initial Mark) [1 CMS-initial-mark: 20580K(68288K)] 23590K(99008K), 0.0026387 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+7.354: [CMS-concurrent-mark-start]
+7.405: [CMS-concurrent-mark: 0.050/0.052 secs] [Times: user=0.19 sys=0.01, real=0.06 secs] 
+7.406: [CMS-concurrent-preclean-start]
+7.407: [CMS-concurrent-preclean: 0.001/0.001 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+7.407: [CMS-concurrent-abortable-preclean-start]
+<writer thread='30723'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<dependency_failed type='leaf_type' ctxk='java/util/StringTokenizer' witness='org/mortbay/util/QuotedStringTokenizer' stamp='7.463'/>
+<writer thread='21511'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/Hashtable' x='java/util/Hashtable rehash ()V' witness='org/apache/juli/logging/impl/WeakHashtable' stamp='7.785'/>
+<writer thread='11779'/>
+7.941: [GC (Allocation Failure) 7.941: [ParNew: 30175K-&gt;2935K(30720K), 0.0077654 secs] 50756K-&gt;24433K(99008K), 0.0079592 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='18435'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/jar/JarFile' x='java/util/jar/JarFile getJarEntry (Ljava/lang/String;)Ljava/util/jar/JarEntry;' witness='org/apache/geronimo/deployment/util/NestedJarFile' stamp='7.958'/>
+<writer thread='11267'/>
+8.273: [CMS-concurrent-abortable-preclean: 0.252/0.866 secs] [Times: user=2.53 sys=0.13, real=0.86 secs] 
+<writer thread='11779'/>
+8.274: [GC (CMS Final Remark) [YG occupancy: 27498 K (30720 K)]8.274: [Rescan (parallel) , 0.0094664 secs]8.284: [weak refs processing, 0.0000500 secs]8.284: [class unloading, 0.0065471 secs]8.290: [scrub symbol table, 0.0056749 secs]8.296: [scrub string table, 0.0007880 secs][1 CMS-remark: 21498K(68288K)] 48996K(99008K), 0.0230438 secs] [Times: user=0.07 sys=0.00, real=0.03 secs] 
+<writer thread='11267'/>
+8.297: [CMS-concurrent-sweep-start]
+8.315: [CMS-concurrent-sweep: 0.017/0.017 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+8.315: [CMS-concurrent-reset-start]
+8.315: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
+<writer thread='11779'/>
+8.344: [GC (Allocation Failure) 8.344: [ParNew: 30263K-&gt;2478K(30720K), 0.0081050 secs] 47291K-&gt;20685K(99008K), 0.0082901 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='21511'/>
+<dependency_failed type='leaf_type' ctxk='javax/management/MBeanAttributeInfo' witness='javax/management/openmbean/OpenMBeanAttributeInfoSupport' stamp='8.758'/>
+<dependency_failed type='leaf_type' ctxk='javax/management/MBeanAttributeInfo' witness='javax/management/openmbean/OpenMBeanAttributeInfoSupport' stamp='8.758'/>
+<dependency_failed type='leaf_type' ctxk='javax/management/MBeanParameterInfo' witness='javax/management/openmbean/OpenMBeanParameterInfoSupport' stamp='8.811'/>
+<dependency_failed type='leaf_type' ctxk='javax/management/MBeanParameterInfo' witness='javax/management/openmbean/OpenMBeanParameterInfoSupport' stamp='8.811'/>
+<dependency_failed type='leaf_type' ctxk='javax/management/MBeanOperationInfo' witness='javax/management/openmbean/OpenMBeanOperationInfoSupport' stamp='8.815'/>
+<dependency_failed type='leaf_type' ctxk='javax/management/MBeanOperationInfo' witness='javax/management/openmbean/OpenMBeanOperationInfoSupport' stamp='8.815'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<dependency_failed type='leaf_type' ctxk='java/io/File' witness='org/apache/derby/impl/io/DirFile' stamp='9.005'/>
+<writer thread='11779'/>
+9.018: [Full GC (System.gc()) 9.018: [CMS: 18206K-&gt;22732K(68288K), 0.1324693 secs] 46577K-&gt;22732K(99008K), [Metaspace: 38581K-&gt;38581K(1085440K)], 0.1326912 secs] [Times: user=0.13 sys=0.00, real=0.13 secs] 
+9.154: [Full GC (System.gc()) 9.154: [CMS: 22732K-&gt;20801K(68288K), 0.1469111 secs] 23186K-&gt;20801K(99008K), [Metaspace: 38583K-&gt;38583K(1085440K)], 0.1473039 secs] [Times: user=0.14 sys=0.01, real=0.15 secs] 
+<writer thread='21511'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataOutputStream' witness='org/apache/derby/iapi/services/io/FormatIdOutputStream' stamp='9.350'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='org/apache/derby/iapi/services/io/FormatIdInputStream' stamp='9.354'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='org/apache/derby/iapi/services/io/FormatIdInputStream' stamp='9.354'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='org/apache/derby/iapi/services/io/FormatIdInputStream' stamp='9.354'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='org/apache/derby/iapi/services/io/FormatIdInputStream' stamp='9.354'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='org/apache/derby/iapi/services/io/FormatIdInputStream' stamp='9.354'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='org/apache/derby/iapi/services/io/FormatIdInputStream' stamp='9.354'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='org/apache/derby/iapi/services/io/FormatIdInputStream' stamp='9.354'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='org/apache/derby/iapi/services/io/FormatIdInputStream' stamp='9.354'/>
+<dependency_failed type='leaf_type' ctxk='java/io/DataInputStream' witness='org/apache/derby/iapi/services/io/FormatIdInputStream' stamp='9.354'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.529'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.529'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.529'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.529'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.529'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.529'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.529'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.529'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.529'/>
+<writer thread='18435'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/lang/CharacterData' x='java/lang/CharacterDataLatin1' witness='java/lang/CharacterData00' stamp='9.621'/>
+<writer thread='11779'/>
+10.134: [GC (Allocation Failure) 10.135: [ParNew: 27328K-&gt;3391K(30720K), 0.0043780 secs] 48129K-&gt;25177K(99008K), 0.0045619 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+10.999: [GC (Allocation Failure) 11.000: [ParNew: 30719K-&gt;3392K(30720K), 0.0097981 secs] 52505K-&gt;27298K(99008K), 0.0106040 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+11.489: [GC (Allocation Failure) 11.489: [ParNew: 30720K-&gt;2771K(30720K), 0.0071523 secs] 54626K-&gt;28029K(99008K), 0.0073279 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+11.888: [GC (Allocation Failure) 11.888: [ParNew: 30099K-&gt;2179K(30720K), 0.0058236 secs] 55357K-&gt;28182K(99008K), 0.0060085 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
+12.288: [GC (Allocation Failure) 12.288: [ParNew: 29507K-&gt;3346K(30720K), 0.0106204 secs] 55510K-&gt;30292K(99008K), 0.0109387 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+12.738: [GC (Allocation Failure) 12.738: [ParNew: 30674K-&gt;2847K(30720K), 0.0175240 secs] 57620K-&gt;31475K(99008K), 0.0228376 secs] [Times: user=0.06 sys=0.00, real=0.02 secs] 
+13.207: [GC (Allocation Failure) 13.207: [ParNew: 30175K-&gt;2658K(30720K), 0.0082010 secs] 58803K-&gt;32860K(99008K), 0.0086570 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='21511'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/HashMap' x='java/util/HashMap containsKey (Ljava/lang/Object;)Z' witness='org/apache/axis/utils/IdentityHashMap' stamp='13.539'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/lang/ClassLoader' x='java/lang/Object equals (Ljava/lang/Object;)Z' witness='org/apache/openjpa/lib/util/MultiClassLoader' stamp='13.783'/>
+<writer thread='11779'/>
+13.805: [GC (Allocation Failure) 13.805: [ParNew: 29986K-&gt;2074K(30720K), 0.0079156 secs] 60188K-&gt;33239K(99008K), 0.0084754 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='21511'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/ArrayList' x='java/util/ArrayList remove (Ljava/lang/Object;)Z' witness='org/apache/openjpa/event/LifecycleEventManager$ListenerList' stamp='13.964'/>
+<dependency_failed type='unique_concrete_method' ctxk='java/util/ArrayList' x='java/util/ArrayList remove (Ljava/lang/Object;)Z' witness='org/apache/openjpa/event/LifecycleEventManager$ListenerList' stamp='13.964'/>
+<writer thread='11779'/>
+14.329: [GC (Allocation Failure) 14.329: [ParNew: 29402K-&gt;3391K(30720K), 0.0082732 secs] 60567K-&gt;34827K(99008K), 0.0084553 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+14.714: [GC (Allocation Failure) 14.714: [ParNew: 30719K-&gt;1981K(30720K), 0.0084813 secs] 62155K-&gt;34827K(99008K), 0.0086863 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='21511'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='sun/misc/Resource' x='sun/misc/URLClassPath$JarLoader$2' witness='sun/misc/URLClassPath$FileLoader$1' stamp='14.742'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='sun/misc/Resource' x='sun/misc/URLClassPath$JarLoader$2' witness='sun/misc/URLClassPath$FileLoader$1' stamp='14.742'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='sun/misc/Resource' x='sun/misc/URLClassPath$JarLoader$2' witness='sun/misc/URLClassPath$FileLoader$1' stamp='14.742'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='sun/misc/Resource' x='sun/misc/URLClassPath$JarLoader$2' witness='sun/misc/URLClassPath$FileLoader$1' stamp='14.742'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='sun/misc/Resource' x='sun/misc/URLClassPath$JarLoader$2' witness='sun/misc/URLClassPath$FileLoader$1' stamp='14.742'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='sun/misc/Resource' x='sun/misc/URLClassPath$JarLoader$2' witness='sun/misc/URLClassPath$FileLoader$1' stamp='14.742'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='sun/misc/Resource' x='sun/misc/URLClassPath$JarLoader$2' witness='sun/misc/URLClassPath$FileLoader$1' stamp='14.742'/>
+<writer thread='11779'/>
+15.880: [Full GC (System.gc()) 15.880: [CMS: 32846K-&gt;32911K(68288K), 0.2078511 secs] 55754K-&gt;32911K(99008K), [Metaspace: 57662K-&gt;57662K(1101824K)], 0.2080861 secs] [Times: user=0.20 sys=0.00, real=0.21 secs] 
+<writer thread='129027'/>
+<dependency_failed type='abstract_with_unique_concrete_subtype' ctxk='java/util/AbstractSequentialList' x='java/util/LinkedList' witness='org/apache/geronimo/samples/daytrader/util/KeyBlock' stamp='16.618'/>
+<dependency_failed type='unique_concrete_method' ctxk='sun/util/calendar/BaseCalendar' x='sun/util/calendar/BaseCalendar isLeapYear (I)Z' witness='sun/util/calendar/JulianCalendar' stamp='16.624'/>
+<dependency_failed type='unique_concrete_method' ctxk='sun/util/calendar/BaseCalendar$Date' x='sun/util/calendar/CalendarDate isNormalized ()Z' witness='sun/util/calendar/ImmutableGregorianDate' stamp='16.628'/>
+<dependency_failed type='unique_concrete_method' ctxk='sun/util/calendar/BaseCalendar$Date' x='sun/util/calendar/CalendarDate isNormalized ()Z' witness='sun/util/calendar/ImmutableGregorianDate' stamp='16.628'/>
+<dependency_failed type='unique_concrete_method' ctxk='sun/util/calendar/BaseCalendar$Date' x='sun/util/calendar/CalendarDate isNormalized ()Z' witness='sun/util/calendar/ImmutableGregorianDate' stamp='16.628'/>
+<dependency_failed type='unique_concrete_method' ctxk='sun/util/calendar/BaseCalendar$Date' x='sun/util/calendar/CalendarDate isNormalized ()Z' witness='sun/util/calendar/ImmutableGregorianDate' stamp='16.628'/>
+<writer thread='11779'/>
+16.929: [GC (Allocation Failure) 16.929: [ParNew: 27328K-&gt;1406K(30720K), 0.0088703 secs] 60239K-&gt;34317K(99008K), 0.0090841 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+17.217: [GC (Allocation Failure) 17.217: [ParNew: 28734K-&gt;1813K(30720K), 0.0040715 secs] 61645K-&gt;34724K(99008K), 0.0042606 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
+17.408: [GC (Allocation Failure) 17.408: [ParNew: 29141K-&gt;1990K(30720K), 0.0043071 secs] 62052K-&gt;34901K(99008K), 0.0044959 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+17.608: [GC (Allocation Failure) 17.608: [ParNew: 29318K-&gt;2593K(30720K), 0.0044866 secs] 62229K-&gt;35504K(99008K), 0.0046707 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+17.794: [GC (Allocation Failure) 17.794: [ParNew: 29921K-&gt;1651K(30720K), 0.0069655 secs] 62832K-&gt;35863K(99008K), 0.0071792 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+17.987: [GC (Allocation Failure) 17.987: [ParNew: 28979K-&gt;1212K(30720K), 0.0038070 secs] 63191K-&gt;35424K(99008K), 0.0040071 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+18.175: [GC (Allocation Failure) 18.175: [ParNew: 28540K-&gt;1509K(30720K), 0.0040387 secs] 62752K-&gt;35721K(99008K), 0.0042357 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+18.346: [GC (Allocation Failure) 18.346: [ParNew: 28837K-&gt;1805K(30720K), 0.0046153 secs] 63049K-&gt;36197K(99008K), 0.0048254 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
+18.495: [GC (Allocation Failure) 18.495: [ParNew: 29133K-&gt;1884K(30720K), 0.0044560 secs] 63525K-&gt;36448K(99008K), 0.0046404 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+18.636: [GC (Allocation Failure) 18.636: [ParNew: 29212K-&gt;1360K(30720K), 0.0046440 secs] 63776K-&gt;36097K(99008K), 0.0048476 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+18.770: [GC (Allocation Failure) 18.770: [ParNew: 28688K-&gt;1725K(30720K), 0.0046045 secs] 63425K-&gt;36634K(99008K), 0.0048024 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
+18.904: [GC (Allocation Failure) 18.904: [ParNew: 29053K-&gt;1591K(30720K), 0.0047055 secs] 63962K-&gt;36680K(99008K), 0.0049137 secs] [Times: user=0.02 sys=0.01, real=0.01 secs] 
+19.032: [GC (Allocation Failure) 19.032: [ParNew: 28919K-&gt;1635K(30720K), 0.0049146 secs] 64008K-&gt;36893K(99008K), 0.0051245 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+19.174: [GC (Allocation Failure) 19.174: [ParNew: 28963K-&gt;1626K(30720K), 0.0045910 secs] 64221K-&gt;37082K(99008K), 0.0048007 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+19.322: [GC (Allocation Failure) 19.322: [ParNew: 28954K-&gt;1586K(30720K), 0.0046735 secs] 64410K-&gt;37217K(99008K), 0.0048615 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+19.473: [GC (Allocation Failure) 19.473: [ParNew: 28914K-&gt;1953K(30720K), 0.0046229 secs] 64545K-&gt;37756K(99008K), 0.0048438 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+19.623: [GC (Allocation Failure) 19.623: [ParNew: 29281K-&gt;1191K(30720K), 0.0046756 secs] 65084K-&gt;37164K(99008K), 0.0048819 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+19.757: [GC (Allocation Failure) 19.757: [ParNew: 28519K-&gt;1755K(30720K), 0.0047433 secs] 64492K-&gt;37899K(99008K), 0.0049468 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
+19.883: [GC (Allocation Failure) 19.883: [ParNew: 29083K-&gt;1641K(30720K), 0.0046065 secs] 65227K-&gt;37955K(99008K), 0.0048037 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+20.233: [GC (Allocation Failure) 20.233: [ParNew: 28969K-&gt;3391K(30720K), 0.0089858 secs] 65283K-&gt;40704K(99008K), 0.0091608 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+20.577: [GC (Allocation Failure) 20.577: [ParNew: 30719K-&gt;3391K(30720K), 0.0206880 secs] 68032K-&gt;45836K(99008K), 0.0209531 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+20.904: [GC (Allocation Failure) 20.904: [ParNew: 30719K-&gt;3391K(30720K), 0.0162570 secs] 73164K-&gt;49809K(99008K), 0.0164716 secs] [Times: user=0.05 sys=0.01, real=0.02 secs] 
+21.172: [GC (Allocation Failure) 21.172: [ParNew: 30719K-&gt;3392K(30720K), 0.0153410 secs] 77137K-&gt;53590K(99008K), 0.0155687 secs] [Times: user=0.03 sys=0.01, real=0.02 secs] 
+21.188: [GC (CMS Initial Mark) [1 CMS-initial-mark: 50198K(68288K)] 53613K(99008K), 0.0024270 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+21.191: [CMS-concurrent-mark-start]
+21.329: [CMS-concurrent-mark: 0.137/0.138 secs] [Times: user=0.51 sys=0.01, real=0.14 secs] 
+21.329: [CMS-concurrent-preclean-start]
+21.331: [CMS-concurrent-preclean: 0.002/0.002 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+21.332: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+21.455: [GC (Allocation Failure) 21.455: [ParNew: 30720K-&gt;3391K(30720K), 0.0151183 secs] 80918K-&gt;55481K(99008K), 0.0154990 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+21.611: [CMS-concurrent-abortable-preclean: 0.233/0.279 secs] [Times: user=0.98 sys=0.04, real=0.28 secs] 
+<writer thread='11779'/>
+21.611: [GC (CMS Final Remark) [YG occupancy: 20125 K (30720 K)]21.611: [Rescan (parallel) , 0.0074343 secs]21.619: [weak refs processing, 0.0023089 secs]21.621: [class unloading, 0.0165397 secs]21.638: [scrub symbol table, 0.0122789 secs]21.650: [scrub string table, 0.0008410 secs][1 CMS-remark: 52089K(68288K)] 72214K(99008K), 0.0401968 secs] [Times: user=0.06 sys=0.01, real=0.04 secs] 
+<writer thread='11267'/>
+21.652: [CMS-concurrent-sweep-start]
+21.696: [CMS-concurrent-sweep: 0.044/0.044 secs] [Times: user=0.15 sys=0.00, real=0.05 secs] 
+21.697: [CMS-concurrent-reset-start]
+21.697: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+21.764: [GC (Allocation Failure) 21.764: [ParNew: 30719K-&gt;3392K(30720K), 0.0142905 secs] 74523K-&gt;49757K(99008K), 0.0145033 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+21.989: [GC (Allocation Failure) 21.989: [ParNew: 30720K-&gt;3392K(30720K), 0.0147712 secs] 77085K-&gt;52332K(99008K), 0.0149980 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+22.222: [GC (Allocation Failure) 22.222: [ParNew: 30720K-&gt;3391K(30720K), 0.0166611 secs] 79660K-&gt;54785K(99008K), 0.0168827 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
+22.473: [GC (Allocation Failure) 22.474: [ParNew: 30719K-&gt;3392K(30720K), 0.0183403 secs] 82113K-&gt;57133K(99008K), 0.0185552 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+22.688: [GC (Allocation Failure) 22.688: [ParNew: 30720K-&gt;3392K(30720K), 0.0170306 secs] 84461K-&gt;59649K(99008K), 0.0172473 secs] [Times: user=0.06 sys=0.01, real=0.01 secs] 
+22.706: [GC (CMS Initial Mark) [1 CMS-initial-mark: 56257K(68288K)] 59649K(99008K), 0.0033943 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+22.710: [CMS-concurrent-mark-start]
+22.819: [CMS-concurrent-mark: 0.109/0.109 secs] [Times: user=0.40 sys=0.02, real=0.11 secs] 
+22.819: [CMS-concurrent-preclean-start]
+22.822: [CMS-concurrent-preclean: 0.002/0.002 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+22.824: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+22.932: [GC (Allocation Failure) 22.932: [ParNew: 30720K-&gt;3392K(30720K), 0.0202146 secs] 86977K-&gt;63126K(99008K), 0.0204314 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+23.099: [CMS-concurrent-abortable-preclean: 0.237/0.272 secs] [Times: user=0.96 sys=0.03, real=0.28 secs] 
+<writer thread='11779'/>
+23.101: [GC (CMS Final Remark) [YG occupancy: 23667 K (30720 K)]23.101: [Rescan (parallel) , 0.0099342 secs]23.111: [weak refs processing, 0.0039590 secs]23.115: [class unloading, 0.0210770 secs]23.136: [scrub symbol table, 0.0105225 secs]23.146: [scrub string table, 0.0011445 secs][1 CMS-remark: 59734K(68288K)] 83401K(99008K), 0.0471624 secs] [Times: user=0.07 sys=0.00, real=0.05 secs] 
+<writer thread='11267'/>
+23.148: [CMS-concurrent-sweep-start]
+23.199: [CMS-concurrent-sweep: 0.050/0.050 secs] [Times: user=0.18 sys=0.01, real=0.05 secs] 
+23.200: [CMS-concurrent-reset-start]
+23.200: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+23.219: [GC (Allocation Failure) 23.219: [ParNew: 30714K-&gt;3392K(30720K), 0.0092724 secs] 76145K-&gt;50500K(99008K), 0.0095042 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+23.417: [GC (Allocation Failure) 23.417: [ParNew: 30720K-&gt;3392K(30720K), 0.0149606 secs] 77828K-&gt;53237K(99008K), 0.0151714 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+23.597: [GC (Allocation Failure) 23.597: [ParNew: 30720K-&gt;3392K(30720K), 0.0150037 secs] 80565K-&gt;56206K(99008K), 0.0152062 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+23.613: [GC (CMS Initial Mark) [1 CMS-initial-mark: 52814K(68288K)] 56261K(99008K), 0.0032370 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+23.617: [CMS-concurrent-mark-start]
+23.786: [CMS-concurrent-mark: 0.141/0.170 secs] [Times: user=0.62 sys=0.03, real=0.17 secs] 
+23.789: [CMS-concurrent-preclean-start]
+23.791: [CMS-concurrent-preclean: 0.002/0.002 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+23.796: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+23.833: [GC (Allocation Failure) 23.833: [ParNew: 30712K-&gt;3392K(30720K), 0.0180655 secs] 83527K-&gt;59846K(99008K), 0.0184415 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+23.978: [CMS-concurrent-abortable-preclean: 0.150/0.182 secs] [Times: user=0.61 sys=0.03, real=0.18 secs] 
+<writer thread='11779'/>
+23.979: [GC (CMS Final Remark) [YG occupancy: 18850 K (30720 K)]23.979: [Rescan (parallel) , 0.0069844 secs]23.986: [weak refs processing, 0.0058268 secs]23.992: [class unloading, 0.0184960 secs]24.011: [scrub symbol table, 0.0141174 secs]24.025: [scrub string table, 0.0013519 secs][1 CMS-remark: 56454K(68288K)] 75304K(99008K), 0.0472380 secs] [Times: user=0.10 sys=0.00, real=0.05 secs] 
+<writer thread='11267'/>
+24.027: [CMS-concurrent-sweep-start]
+24.073: [CMS-concurrent-sweep: 0.047/0.047 secs] [Times: user=0.16 sys=0.01, real=0.04 secs] 
+24.074: [CMS-concurrent-reset-start]
+24.074: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+24.109: [GC (Allocation Failure) 24.109: [ParNew: 30720K-&gt;3392K(30720K), 0.0219159 secs] 76998K-&gt;52265K(99008K), 0.0222092 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+24.317: [GC (Allocation Failure) 24.317: [ParNew: 30720K-&gt;3392K(30720K), 0.0128756 secs] 79593K-&gt;54566K(99008K), 0.0131138 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+24.485: [GC (Allocation Failure) 24.485: [ParNew: 30720K-&gt;3392K(30720K), 0.0181738 secs] 81894K-&gt;58195K(99008K), 0.0183884 secs] [Times: user=0.06 sys=0.00, real=0.02 secs] 
+24.505: [GC (CMS Initial Mark) [1 CMS-initial-mark: 54803K(68288K)] 58263K(99008K), 0.0029883 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+24.508: [CMS-concurrent-mark-start]
+24.668: [CMS-concurrent-mark: 0.143/0.160 secs] [Times: user=0.57 sys=0.03, real=0.16 secs] 
+24.668: [CMS-concurrent-preclean-start]
+24.671: [CMS-concurrent-preclean: 0.002/0.002 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+24.672: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+24.694: [GC (Allocation Failure) 24.694: [ParNew: 30720K-&gt;3392K(30720K), 0.0173281 secs] 85523K-&gt;60926K(99008K), 0.0175463 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+24.822: [CMS-concurrent-abortable-preclean: 0.123/0.150 secs] [Times: user=0.48 sys=0.03, real=0.15 secs] 
+<writer thread='11779'/>
+24.825: [GC (CMS Final Remark) [YG occupancy: 19580 K (30720 K)]24.825: [Rescan (parallel) , 0.0063755 secs]24.831: [weak refs processing, 0.0048601 secs]24.836: [class unloading, 0.0151226 secs]24.851: [scrub symbol table, 0.0126992 secs]24.864: [scrub string table, 0.0012676 secs][1 CMS-remark: 57534K(68288K)] 77115K(99008K), 0.0407557 secs] [Times: user=0.06 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+24.869: [CMS-concurrent-sweep-start]
+24.936: [CMS-concurrent-sweep: 0.067/0.067 secs] [Times: user=0.22 sys=0.02, real=0.07 secs] 
+24.936: [CMS-concurrent-reset-start]
+24.937: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+24.957: [GC (Allocation Failure) 24.957: [ParNew: 30720K-&gt;3391K(30720K), 0.0140980 secs] 76524K-&gt;52263K(99008K), 0.0143442 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+25.123: [GC (Allocation Failure) 25.123: [ParNew: 30719K-&gt;3392K(30720K), 0.0115524 secs] 79591K-&gt;54644K(99008K), 0.0117853 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+25.320: [GC (Allocation Failure) 25.320: [ParNew: 30720K-&gt;3392K(30720K), 0.0126042 secs] 81972K-&gt;57622K(99008K), 0.0128284 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+25.334: [GC (CMS Initial Mark) [1 CMS-initial-mark: 54230K(68288K)] 57673K(99008K), 0.0034090 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+25.337: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+25.504: [GC (Allocation Failure) 25.504: [ParNew: 30720K-&gt;3391K(30720K), 0.0151634 secs] 84950K-&gt;59589K(99008K), 0.0153835 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+25.543: [CMS-concurrent-mark: 0.187/0.205 secs] [Times: user=0.71 sys=0.03, real=0.20 secs] 
+25.543: [CMS-concurrent-preclean-start]
+25.546: [CMS-concurrent-preclean: 0.003/0.003 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
+25.547: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+25.704: [GC (Allocation Failure) 25.704: [ParNew: 30719K-&gt;3392K(30720K), 0.0179070 secs] 86917K-&gt;62885K(99008K), 0.0181290 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+25.856: [CMS-concurrent-abortable-preclean: 0.273/0.309 secs] [Times: user=1.05 sys=0.04, real=0.31 secs] 
+<writer thread='11779'/>
+25.857: [GC (CMS Final Remark) [YG occupancy: 23518 K (30720 K)]25.857: [Rescan (parallel) , 0.0092378 secs]25.866: [weak refs processing, 0.0048148 secs]25.871: [class unloading, 0.0199442 secs]25.891: [scrub symbol table, 0.0147769 secs]25.906: [scrub string table, 0.0014328 secs][1 CMS-remark: 59493K(68288K)] 83012K(99008K), 0.0506410 secs] [Times: user=0.08 sys=0.01, real=0.05 secs] 
+<writer thread='11267'/>
+25.908: [CMS-concurrent-sweep-start]
+25.969: [CMS-concurrent-sweep: 0.061/0.061 secs] [Times: user=0.21 sys=0.00, real=0.06 secs] 
+25.969: [CMS-concurrent-reset-start]
+25.969: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+25.981: [GC (Allocation Failure) 25.981: [ParNew: 30710K-&gt;3392K(30720K), 0.0145738 secs] 77631K-&gt;53439K(99008K), 0.0148387 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+26.180: [GC (Allocation Failure) 26.180: [ParNew: 30720K-&gt;3392K(30720K), 0.0164328 secs] 80767K-&gt;57259K(99008K), 0.0166618 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+26.198: [GC (CMS Initial Mark) [1 CMS-initial-mark: 53867K(68288K)] 57264K(99008K), 0.0026462 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+26.200: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+26.358: [GC (Allocation Failure) 26.358: [ParNew: 30720K-&gt;3392K(30720K), 0.0269534 secs] 84587K-&gt;60030K(99008K), 0.0271801 secs] [Times: user=0.05 sys=0.01, real=0.02 secs] 
+<writer thread='11267'/>
+26.431: [CMS-concurrent-mark: 0.201/0.231 secs] [Times: user=0.74 sys=0.04, real=0.23 secs] 
+26.433: [CMS-concurrent-preclean-start]
+26.437: [CMS-concurrent-preclean: 0.003/0.003 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+26.438: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+26.552: [GC (Allocation Failure) 26.552: [ParNew: 30720K-&gt;3391K(30720K), 0.0162229 secs] 87358K-&gt;62918K(99008K), 0.0164430 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+26.735: [GC (Allocation Failure) 26.736: [ParNew: 30706K-&gt;3391K(30720K), 0.0178989 secs] 90232K-&gt;65338K(99008K), 0.0181226 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+26.754: [CMS-concurrent-abortable-preclean: 0.230/0.316 secs] [Times: user=1.01 sys=0.06, real=0.31 secs] 
+<writer thread='11779'/>
+26.756: [GC (CMS Final Remark) [YG occupancy: 3601 K (30720 K)]26.756: [Rescan (parallel) , 0.0046057 secs]26.760: [weak refs processing, 0.0064401 secs]26.767: [class unloading, 0.0316848 secs]26.799: [scrub symbol table, 0.0130401 secs]26.812: [scrub string table, 0.0014469 secs][1 CMS-remark: 61946K(68288K)] 65548K(99008K), 0.0578270 secs] [Times: user=0.07 sys=0.01, real=0.06 secs] 
+<writer thread='11267'/>
+26.814: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+26.987: [GC (Allocation Failure) 26.987: [ParNew: 30719K-&gt;3392K(30720K), 0.0148109 secs] 84794K-&gt;60058K(99008K), 0.0151026 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+27.034: [CMS-concurrent-sweep: 0.188/0.220 secs] [Times: user=0.76 sys=0.04, real=0.22 secs] 
+27.035: [CMS-concurrent-reset-start]
+27.035: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+27.139: [GC (Allocation Failure) 27.140: [ParNew: 30718K-&gt;3391K(30720K), 0.0158679 secs] 84661K-&gt;60241K(99008K), 0.0160807 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+27.157: [GC (CMS Initial Mark) [1 CMS-initial-mark: 56849K(68288K)] 60289K(99008K), 0.0027569 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+27.160: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+27.346: [GC (Allocation Failure) 27.346: [ParNew: 30719K-&gt;3392K(30720K), 0.0155782 secs] 87569K-&gt;63037K(99008K), 0.0158149 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+27.435: [CMS-concurrent-mark: 0.203/0.276 secs] [Times: user=0.94 sys=0.05, real=0.28 secs] 
+27.436: [CMS-concurrent-preclean-start]
+27.440: [CMS-concurrent-preclean: 0.004/0.004 secs] [Times: user=0.02 sys=0.01, real=0.00 secs] 
+27.440: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+27.523: [GC (Allocation Failure) 27.523: [ParNew: 30720K-&gt;3391K(30720K), 0.0160834 secs] 90365K-&gt;65355K(99008K), 0.0163031 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+27.615: [CMS-concurrent-abortable-preclean: 0.153/0.175 secs] [Times: user=0.53 sys=0.02, real=0.17 secs] 
+<writer thread='11779'/>
+27.616: [GC (CMS Final Remark) [YG occupancy: 20664 K (30720 K)]27.616: [Rescan (parallel) , 0.0086083 secs]27.625: [weak refs processing, 0.0042860 secs]27.629: [class unloading, 0.0202176 secs]27.650: [scrub symbol table, 0.0146300 secs]27.665: [scrub string table, 0.0014465 secs][1 CMS-remark: 61963K(68288K)] 82627K(99008K), 0.0500925 secs] [Times: user=0.11 sys=0.01, real=0.05 secs] 
+<writer thread='11267'/>
+27.667: [CMS-concurrent-sweep-start]
+27.717: [CMS-concurrent-sweep: 0.050/0.050 secs] [Times: user=0.18 sys=0.01, real=0.05 secs] 
+27.717: [CMS-concurrent-reset-start]
+27.717: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+27.730: [GC (Allocation Failure) 27.730: [ParNew: 30719K-&gt;3392K(30720K), 0.0150990 secs] 78014K-&gt;53324K(99008K), 0.0153224 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+27.907: [GC (Allocation Failure) 27.907: [ParNew: 30720K-&gt;3392K(30720K), 0.0157097 secs] 80652K-&gt;56423K(99008K), 0.0159292 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+27.924: [GC (CMS Initial Mark) [1 CMS-initial-mark: 53031K(68288K)] 56530K(99008K), 0.0031009 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+27.928: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+28.075: [GC (Allocation Failure) 28.075: [ParNew: 30693K-&gt;3392K(30720K), 0.0150883 secs] 83725K-&gt;59549K(99008K), 0.0152910 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+28.230: [GC (Allocation Failure) 28.230: [ParNew: 30720K-&gt;3392K(30720K), 0.0166154 secs] 86877K-&gt;62802K(99008K), 0.0168539 secs] [Times: user=0.05 sys=0.01, real=0.02 secs] 
+<writer thread='11267'/>
+28.248: [CMS-concurrent-mark: 0.265/0.320 secs] [Times: user=1.11 sys=0.06, real=0.32 secs] 
+28.248: [CMS-concurrent-preclean-start]
+28.262: [CMS-concurrent-preclean: 0.013/0.014 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+28.262: [CMS-concurrent-abortable-preclean-start]
+28.368: [CMS-concurrent-abortable-preclean: 0.104/0.106 secs] [Times: user=0.37 sys=0.02, real=0.11 secs] 
+<writer thread='11779'/>
+28.371: [GC (CMS Final Remark) [YG occupancy: 26875 K (30720 K)]28.371: [Rescan (parallel) , 0.0088736 secs]28.380: [weak refs processing, 0.0038408 secs]28.384: [class unloading, 0.0199369 secs]28.404: [scrub symbol table, 0.0139775 secs]28.418: [scrub string table, 0.0010742 secs][1 CMS-remark: 59410K(68288K)] 86285K(99008K), 0.0481131 secs] [Times: user=0.11 sys=0.01, real=0.05 secs] 
+<writer thread='11267'/>
+28.419: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+28.438: [GC (Allocation Failure) 28.439: [ParNew: 30720K-&gt;3392K(30720K), 0.0181365 secs] 90030K-&gt;65853K(99008K), 0.0184721 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+28.531: [CMS-concurrent-sweep: 0.090/0.111 secs] [Times: user=0.35 sys=0.02, real=0.11 secs] 
+28.531: [CMS-concurrent-reset-start]
+28.531: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+28.630: [GC (Allocation Failure) 28.630: [ParNew: 30720K-&gt;3391K(30720K), 0.0136103 secs] 82408K-&gt;57363K(99008K), 0.0138281 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+28.645: [GC (CMS Initial Mark) [1 CMS-initial-mark: 53971K(68288K)] 57409K(99008K), 0.0025784 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+28.648: [CMS-concurrent-mark-start]
+28.784: [CMS-concurrent-mark: 0.135/0.136 secs] [Times: user=0.47 sys=0.03, real=0.13 secs] 
+28.785: [CMS-concurrent-preclean-start]
+<writer thread='11779'/>
+28.806: [GC (Allocation Failure) 28.806: [ParNew: 30719K-&gt;3392K(30720K), 0.0130964 secs] 84691K-&gt;60240K(99008K), 0.0133333 secs] [Times: user=0.03 sys=0.01, real=0.01 secs] 
+<writer thread='11267'/>
+28.914: [CMS-concurrent-preclean: 0.114/0.129 secs] [Times: user=0.40 sys=0.03, real=0.13 secs] 
+28.914: [CMS-concurrent-abortable-preclean-start]
+28.934: [CMS-concurrent-abortable-preclean: 0.015/0.019 secs] [Times: user=0.06 sys=0.00, real=0.02 secs] 
+<writer thread='11779'/>
+28.936: [GC (CMS Final Remark) [YG occupancy: 24363 K (30720 K)]28.936: [Rescan (parallel) , 0.0092901 secs]28.945: [weak refs processing, 0.0045352 secs]28.950: [class unloading, 0.0200397 secs]28.970: [scrub symbol table, 0.0125019 secs]28.982: [scrub string table, 0.0010446 secs][1 CMS-remark: 56848K(68288K)] 81211K(99008K), 0.0478570 secs] [Times: user=0.07 sys=0.00, real=0.05 secs] 
+<writer thread='11267'/>
+28.984: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+29.031: [GC (Allocation Failure) 29.031: [ParNew: 30720K-&gt;3392K(30720K), 0.0136602 secs] 87418K-&gt;62673K(99008K), 0.0138794 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+29.178: [CMS-concurrent-sweep: 0.176/0.194 secs] [Times: user=0.59 sys=0.04, real=0.20 secs] 
+29.179: [CMS-concurrent-reset-start]
+29.179: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+29.202: [GC (Allocation Failure) 29.202: [ParNew: 30720K-&gt;3392K(30720K), 0.0134250 secs] 78834K-&gt;54489K(99008K), 0.0136454 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+29.346: [GC (Allocation Failure) 29.346: [ParNew: 30720K-&gt;3391K(30720K), 0.0119391 secs] 81817K-&gt;56730K(99008K), 0.0122115 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+29.359: [GC (CMS Initial Mark) [1 CMS-initial-mark: 53338K(68288K)] 56832K(99008K), 0.0027013 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+29.362: [CMS-concurrent-mark-start]
+29.499: [CMS-concurrent-mark: 0.135/0.137 secs] [Times: user=0.47 sys=0.04, real=0.14 secs] 
+29.500: [CMS-concurrent-preclean-start]
+29.503: [CMS-concurrent-preclean: 0.004/0.004 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+29.504: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+29.523: [GC (Allocation Failure) 29.524: [ParNew: 30719K-&gt;3392K(30720K), 0.0134823 secs] 84058K-&gt;59589K(99008K), 0.0137451 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+29.627: [CMS-concurrent-abortable-preclean: 0.108/0.124 secs] [Times: user=0.39 sys=0.03, real=0.13 secs] 
+<writer thread='11779'/>
+29.629: [GC (CMS Final Remark) [YG occupancy: 17556 K (30720 K)]29.629: [Rescan (parallel) , 0.0067070 secs]29.635: [weak refs processing, 0.0024841 secs]29.638: [class unloading, 0.0182138 secs]29.656: [scrub symbol table, 0.0134932 secs]29.670: [scrub string table, 0.0010164 secs][1 CMS-remark: 56197K(68288K)] 73754K(99008K), 0.0423287 secs] [Times: user=0.09 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+29.671: [CMS-concurrent-sweep-start]
+29.735: [CMS-concurrent-sweep: 0.064/0.064 secs] [Times: user=0.20 sys=0.02, real=0.07 secs] 
+29.736: [CMS-concurrent-reset-start]
+29.736: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+29.738: [GC (Allocation Failure) 29.738: [ParNew: 30711K-&gt;3392K(30720K), 0.0121609 secs] 75121K-&gt;50199K(99008K), 0.0123624 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+29.880: [GC (Allocation Failure) 29.881: [ParNew: 30720K-&gt;3392K(30720K), 0.0114173 secs] 77527K-&gt;52137K(99008K), 0.0116600 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+30.022: [GC (Allocation Failure) 30.022: [ParNew: 30719K-&gt;3391K(30720K), 0.0113322 secs] 79464K-&gt;54735K(99008K), 0.0115732 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+30.164: [GC (Allocation Failure) 30.165: [ParNew: 30719K-&gt;3392K(30720K), 0.0123742 secs] 82063K-&gt;57673K(99008K), 0.0125996 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+30.178: [GC (CMS Initial Mark) [1 CMS-initial-mark: 54281K(68288K)] 57816K(99008K), 0.0027627 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+30.181: [CMS-concurrent-mark-start]
+30.329: [CMS-concurrent-mark: 0.148/0.148 secs] [Times: user=0.50 sys=0.03, real=0.15 secs] 
+30.329: [CMS-concurrent-preclean-start]
+30.332: [CMS-concurrent-preclean: 0.003/0.003 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+30.333: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+30.336: [GC (Allocation Failure) 30.336: [ParNew: 30720K-&gt;3391K(30720K), 0.0151398 secs] 85001K-&gt;60610K(99008K), 0.0153907 secs] [Times: user=0.04 sys=0.01, real=0.01 secs] 
+<writer thread='11267'/>
+30.460: [CMS-concurrent-abortable-preclean: 0.108/0.127 secs] [Times: user=0.45 sys=0.03, real=0.14 secs] 
+<writer thread='11779'/>
+30.469: [GC (CMS Final Remark) [YG occupancy: 25770 K (30720 K)]30.469: [Rescan (parallel) , 0.0099243 secs]30.479: [weak refs processing, 0.0016858 secs]30.481: [class unloading, 0.0227926 secs]30.503: [scrub symbol table, 0.0132629 secs]30.517: [scrub string table, 0.0008906 secs][1 CMS-remark: 57218K(68288K)] 82988K(99008K), 0.0489844 secs] [Times: user=0.08 sys=0.00, real=0.05 secs] 
+<writer thread='11267'/>
+30.539: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+30.540: [GC (Allocation Failure) 30.540: [ParNew: 30719K-&gt;3391K(30720K), 0.0158778 secs] 87938K-&gt;62429K(99008K), 0.0161067 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+30.690: [CMS-concurrent-sweep: 0.114/0.151 secs] [Times: user=0.48 sys=0.03, real=0.15 secs] 
+30.691: [CMS-concurrent-reset-start]
+30.691: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+30.704: [GC (Allocation Failure) 30.705: [ParNew: 30719K-&gt;3392K(30720K), 0.0141289 secs] 76723K-&gt;52699K(99008K), 0.0143934 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+30.834: [GC (Allocation Failure) 30.834: [ParNew: 30720K-&gt;3391K(30720K), 0.0116429 secs] 80027K-&gt;55004K(99008K), 0.0118571 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+30.975: [GC (Allocation Failure) 30.975: [ParNew: 30719K-&gt;3392K(30720K), 0.0139750 secs] 82332K-&gt;57587K(99008K), 0.0142049 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+30.991: [GC (CMS Initial Mark) [1 CMS-initial-mark: 54195K(68288K)] 57593K(99008K), 0.0029709 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+30.994: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+31.129: [GC (Allocation Failure) 31.129: [ParNew: 30720K-&gt;3391K(30720K), 0.0137773 secs] 84915K-&gt;60284K(99008K), 0.0139989 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+31.177: [CMS-concurrent-mark: 0.167/0.183 secs] [Times: user=0.63 sys=0.04, real=0.19 secs] 
+31.179: [CMS-concurrent-preclean-start]
+31.183: [CMS-concurrent-preclean: 0.003/0.003 secs] [Times: user=0.01 sys=0.01, real=0.00 secs] 
+31.185: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+31.282: [GC (Allocation Failure) 31.283: [ParNew: 30719K-&gt;3392K(30720K), 0.0147278 secs] 87612K-&gt;63502K(99008K), 0.0149690 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+31.398: [CMS-concurrent-abortable-preclean: 0.110/0.212 secs] [Times: user=0.75 sys=0.06, real=0.23 secs] 
+<writer thread='11779'/>
+31.417: [GC (Allocation Failure) 31.417: [ParNew: 30720K-&gt;3392K(30720K), 0.0198511 secs] 90830K-&gt;65831K(99008K), 0.0200493 secs] [Times: user=0.06 sys=0.00, real=0.02 secs] 
+31.453: [GC (CMS Final Remark) [YG occupancy: 5881 K (30720 K)]31.453: [Rescan (parallel) , 0.0068133 secs]31.459: [weak refs processing, 0.0042800 secs]31.464: [class unloading, 0.0183614 secs]31.482: [scrub symbol table, 0.0116419 secs]31.494: [scrub string table, 0.0013798 secs][1 CMS-remark: 62439K(68288K)] 68320K(99008K), 0.0429422 secs] [Times: user=0.09 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+31.496: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+31.630: [GC (Allocation Failure) 31.630: [ParNew: 30720K-&gt;3391K(30720K), 0.0121101 secs] 83743K-&gt;58736K(99008K), 0.0123224 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+31.672: [CMS-concurrent-sweep: 0.153/0.176 secs] [Times: user=0.59 sys=0.03, real=0.17 secs] 
+31.672: [CMS-concurrent-reset-start]
+31.672: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+31.781: [GC (Allocation Failure) 31.781: [ParNew: 30719K-&gt;3391K(30720K), 0.0117558 secs] 83122K-&gt;58719K(99008K), 0.0119657 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+31.794: [GC (CMS Initial Mark) [1 CMS-initial-mark: 55327K(68288K)] 58879K(99008K), 0.0027122 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+31.796: [CMS-concurrent-mark-start]
+31.914: [CMS-concurrent-mark: 0.117/0.117 secs] [Times: user=0.39 sys=0.02, real=0.11 secs] 
+31.914: [CMS-concurrent-preclean-start]
+31.916: [CMS-concurrent-preclean: 0.002/0.002 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+31.916: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+31.939: [GC (Allocation Failure) 31.939: [ParNew: 30719K-&gt;3392K(30720K), 0.0141614 secs] 86047K-&gt;61378K(99008K), 0.0143904 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+32.084: [GC (Allocation Failure) 32.084: [ParNew: 30720K-&gt;3391K(30720K), 0.0119693 secs] 88706K-&gt;63836K(99008K), 0.0121927 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+32.170: [CMS-concurrent-abortable-preclean: 0.152/0.254 secs] [Times: user=0.79 sys=0.08, real=0.25 secs] 
+<writer thread='11779'/>
+32.171: [GC (CMS Final Remark) [YG occupancy: 24188 K (30720 K)]32.171: [Rescan (parallel) , 0.0097140 secs]32.181: [weak refs processing, 0.0028226 secs]32.184: [class unloading, 0.0159703 secs]32.200: [scrub symbol table, 0.0126622 secs]32.213: [scrub string table, 0.0013154 secs][1 CMS-remark: 60444K(68288K)] 84633K(99008K), 0.0429299 secs] [Times: user=0.11 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+32.214: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+32.260: [GC (Allocation Failure) 32.260: [ParNew: 30719K-&gt;3392K(30720K), 0.0133381 secs] 90373K-&gt;65457K(99008K), 0.0135559 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+32.317: [CMS-concurrent-sweep: 0.085/0.102 secs] [Times: user=0.31 sys=0.03, real=0.11 secs] 
+32.317: [CMS-concurrent-reset-start]
+32.317: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+32.389: [GC (Allocation Failure) 32.389: [ParNew: 30720K-&gt;3391K(30720K), 0.0118525 secs] 79997K-&gt;55319K(99008K), 0.0121204 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+32.402: [GC (CMS Initial Mark) [1 CMS-initial-mark: 51927K(68288K)] 55498K(99008K), 0.0037342 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+32.406: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+32.564: [GC (Allocation Failure) 32.564: [ParNew: 30719K-&gt;3392K(30720K), 0.0126079 secs] 82647K-&gt;58028K(99008K), 0.0128270 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+32.699: [GC (Allocation Failure) 32.699: [ParNew: 30720K-&gt;3391K(30720K), 0.0113025 secs] 85356K-&gt;60460K(99008K), 0.0115165 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+32.727: [CMS-concurrent-mark: 0.289/0.320 secs] [Times: user=1.04 sys=0.07, real=0.32 secs] 
+32.727: [CMS-concurrent-preclean-start]
+32.733: [CMS-concurrent-preclean: 0.005/0.005 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+32.733: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+32.834: [GC (Allocation Failure) 32.834: [ParNew: 30719K-&gt;3391K(30720K), 0.0112397 secs] 87788K-&gt;63055K(99008K), 0.0114791 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+32.924: [CMS-concurrent-abortable-preclean: 0.166/0.191 secs] [Times: user=0.62 sys=0.06, real=0.20 secs] 
+<writer thread='11779'/>
+32.930: [GC (CMS Final Remark) [YG occupancy: 21204 K (30720 K)]32.930: [Rescan (parallel) , 0.0070265 secs]32.937: [weak refs processing, 0.0017389 secs]32.939: [class unloading, 0.0158534 secs]32.955: [scrub symbol table, 0.0120669 secs]32.967: [scrub string table, 0.0010380 secs][1 CMS-remark: 59663K(68288K)] 80867K(99008K), 0.0381690 secs] [Times: user=0.09 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+32.969: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+33.006: [GC (Allocation Failure) 33.006: [ParNew: 30719K-&gt;3391K(30720K), 0.0144711 secs] 88655K-&gt;63885K(99008K), 0.0147292 secs] [Times: user=0.03 sys=0.01, real=0.01 secs] 
+<writer thread='11267'/>
+33.037: [CMS-concurrent-sweep: 0.052/0.068 secs] [Times: user=0.20 sys=0.02, real=0.07 secs] 
+33.037: [CMS-concurrent-reset-start]
+33.037: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+33.138: [GC (Allocation Failure) 33.138: [ParNew: 30719K-&gt;3392K(30720K), 0.0117139 secs] 82073K-&gt;57256K(99008K), 0.0119873 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+33.152: [GC (CMS Initial Mark) [1 CMS-initial-mark: 53864K(68288K)] 57370K(99008K), 0.0038458 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+33.156: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+33.262: [GC (Allocation Failure) 33.262: [ParNew: 30720K-&gt;3391K(30720K), 0.0113281 secs] 84584K-&gt;59821K(99008K), 0.0115436 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+33.404: [GC (Allocation Failure) 33.404: [ParNew: 30719K-&gt;3392K(30720K), 0.0128061 secs] 87149K-&gt;61727K(99008K), 0.0130440 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+33.510: [CMS-concurrent-mark: 0.319/0.354 secs] [Times: user=1.11 sys=0.09, real=0.36 secs] 
+33.511: [CMS-concurrent-preclean-start]
+33.516: [CMS-concurrent-preclean: 0.005/0.005 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+33.516: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+33.547: [GC (Allocation Failure) 33.547: [ParNew: 30720K-&gt;3392K(30720K), 0.0148286 secs] 89055K-&gt;64505K(99008K), 0.0150489 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+33.645: [CMS-concurrent-abortable-preclean: 0.112/0.129 secs] [Times: user=0.38 sys=0.03, real=0.12 secs] 
+<writer thread='11779'/>
+33.646: [GC (CMS Final Remark) [YG occupancy: 27850 K (30720 K)]33.646: [Rescan (parallel) , 0.0105761 secs]33.657: [weak refs processing, 0.0027396 secs]33.660: [class unloading, 0.0157191 secs]33.676: [scrub symbol table, 0.0137965 secs]33.690: [scrub string table, 0.0010462 secs][1 CMS-remark: 61113K(68288K)] 88964K(99008K), 0.0444542 secs] [Times: user=0.07 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+33.691: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+33.704: [GC (Allocation Failure) 33.705: [ParNew: 30720K-&gt;3392K(30720K), 0.0130546 secs] 91599K-&gt;66281K(99008K), 0.0133568 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+33.818: [CMS-concurrent-sweep: 0.112/0.127 secs] [Times: user=0.39 sys=0.04, real=0.13 secs] 
+33.820: [CMS-concurrent-reset-start]
+33.821: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+33.833: [GC (Allocation Failure) 33.833: [ParNew: 30720K-&gt;3392K(30720K), 0.0130600 secs] 81344K-&gt;56270K(99008K), 0.0133422 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+33.848: [GC (CMS Initial Mark) [1 CMS-initial-mark: 52878K(68288K)] 56495K(99008K), 0.0026747 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+33.851: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+33.972: [GC (Allocation Failure) 33.972: [ParNew: 30720K-&gt;3391K(30720K), 0.0142254 secs] 83598K-&gt;58848K(99008K), 0.0144817 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+34.104: [GC (Allocation Failure) 34.104: [ParNew: 30719K-&gt;3392K(30720K), 0.0155785 secs] 86176K-&gt;61307K(99008K), 0.0158183 secs] [Times: user=0.03 sys=0.01, real=0.02 secs] 
+<writer thread='11267'/>
+34.219: [CMS-concurrent-mark: 0.217/0.368 secs] [Times: user=1.16 sys=0.09, real=0.37 secs] 
+34.219: [CMS-concurrent-preclean-start]
+34.223: [CMS-concurrent-preclean: 0.003/0.003 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
+34.223: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+34.250: [GC (Allocation Failure) 34.250: [ParNew: 30720K-&gt;3392K(30720K), 0.0182987 secs] 88635K-&gt;64206K(99008K), 0.0185632 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+34.401: [GC (Allocation Failure) 34.401: [ParNew: 30720K-&gt;3392K(30720K), 0.0120250 secs] 91534K-&gt;66641K(99008K), 0.0123190 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+34.427: [CMS-concurrent-abortable-preclean: 0.159/0.203 secs] [Times: user=0.63 sys=0.06, real=0.21 secs] 
+<writer thread='11779'/>
+34.429: [GC (CMS Final Remark) [YG occupancy: 7276 K (30720 K)]34.430: [Rescan (parallel) , 0.0069425 secs]34.437: [weak refs processing, 0.0027047 secs]34.439: [class unloading, 0.0281931 secs]34.468: [scrub symbol table, 0.0107556 secs]34.478: [scrub string table, 0.0009099 secs][1 CMS-remark: 63249K(68288K)] 70525K(99008K), 0.0599947 secs] [Times: user=0.10 sys=0.00, real=0.06 secs] 
+<writer thread='11267'/>
+34.490: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+34.581: [GC (Allocation Failure) 34.581: [ParNew: 30720K-&gt;3391K(30720K), 0.0118679 secs] 88434K-&gt;63808K(99008K), 0.0121595 secs] [Times: user=0.03 sys=0.01, real=0.01 secs] 
+<writer thread='11267'/>
+34.606: [CMS-concurrent-sweep: 0.103/0.116 secs] [Times: user=0.32 sys=0.04, real=0.12 secs] 
+34.607: [CMS-concurrent-reset-start]
+34.607: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+34.690: [GC (Allocation Failure) 34.690: [ParNew: 30719K-&gt;3391K(30720K), 0.0111911 secs] 82975K-&gt;58214K(99008K), 0.0114556 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+34.702: [GC (CMS Initial Mark) [1 CMS-initial-mark: 54822K(68288K)] 58216K(99008K), 0.0026987 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+34.705: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+34.824: [GC (Allocation Failure) 34.824: [ParNew: 30719K-&gt;3392K(30720K), 0.0115161 secs] 85542K-&gt;60513K(99008K), 0.0117631 secs] [Times: user=0.03 sys=0.01, real=0.02 secs] 
+34.933: [GC (Allocation Failure) 34.933: [ParNew: 30720K-&gt;3391K(30720K), 0.0124006 secs] 87841K-&gt;63347K(99008K), 0.0126481 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+34.996: [CMS-concurrent-mark: 0.252/0.290 secs] [Times: user=0.92 sys=0.09, real=0.29 secs] 
+34.996: [CMS-concurrent-preclean-start]
+35.002: [CMS-concurrent-preclean: 0.006/0.006 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+35.003: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+35.064: [GC (Allocation Failure) 35.064: [ParNew: 30719K-&gt;3392K(30720K), 0.0148855 secs] 90675K-&gt;65642K(99008K), 0.0151209 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+35.168: [GC (Allocation Failure) 35.168: [ParNew: 30720K-&gt;3392K(30720K), 0.0177445 secs] 92970K-&gt;67891K(99008K), 0.0180849 secs] [Times: user=0.06 sys=0.01, real=0.02 secs] 
+<writer thread='11267'/>
+35.189: [CMS-concurrent-abortable-preclean: 0.117/0.186 secs] [Times: user=0.58 sys=0.05, real=0.19 secs] 
+<writer thread='11779'/>
+35.197: [GC (CMS Final Remark) [YG occupancy: 6465 K (30720 K)]35.197: [Rescan (parallel) , 0.0108532 secs]35.208: [weak refs processing, 0.0052557 secs]35.213: [class unloading, 0.0242855 secs]35.237: [scrub symbol table, 0.0132792 secs]35.251: [scrub string table, 0.0014008 secs][1 CMS-remark: 64499K(68288K)] 70964K(99008K), 0.0555660 secs] [Times: user=0.15 sys=0.00, real=0.05 secs] 
+<writer thread='11267'/>
+35.269: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+35.359: [GC (Allocation Failure) 35.359: [ParNew: 30720K-&gt;3392K(30720K), 0.0131999 secs] 92841K-&gt;68353K(99008K), 0.0134226 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+35.442: [CMS-concurrent-sweep: 0.155/0.173 secs] [Times: user=0.52 sys=0.05, real=0.17 secs] 
+35.442: [CMS-concurrent-reset-start]
+35.443: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.01, real=0.00 secs] 
+<writer thread='11779'/>
+35.473: [GC (Allocation Failure) 35.473: [ParNew: 30720K-&gt;3391K(30720K), 0.0140643 secs] 84366K-&gt;59531K(99008K), 0.0143726 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
+35.489: [GC (CMS Initial Mark) [1 CMS-initial-mark: 56139K(68288K)] 59773K(99008K), 0.0033978 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+35.493: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+35.617: [GC (Allocation Failure) 35.617: [ParNew: 30719K-&gt;3392K(30720K), 0.0115305 secs] 86859K-&gt;61762K(99008K), 0.0117975 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+35.653: [CMS-concurrent-mark: 0.148/0.160 secs] [Times: user=0.53 sys=0.03, real=0.16 secs] 
+35.654: [CMS-concurrent-preclean-start]
+35.660: [CMS-concurrent-preclean: 0.006/0.006 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+35.661: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+35.748: [GC (Allocation Failure) 35.748: [ParNew: 30720K-&gt;3391K(30720K), 0.0126572 secs] 89090K-&gt;64141K(99008K), 0.0129123 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+35.835: [CMS-concurrent-abortable-preclean: 0.153/0.175 secs] [Times: user=0.52 sys=0.06, real=0.17 secs] 
+<writer thread='11779'/>
+35.840: [GC (CMS Final Remark) [YG occupancy: 25089 K (30720 K)]35.840: [Rescan (parallel) , 0.0079428 secs]35.848: [weak refs processing, 0.0020213 secs]35.850: [class unloading, 0.0168732 secs]35.867: [scrub symbol table, 0.0125024 secs]35.879: [scrub string table, 0.0013319 secs][1 CMS-remark: 60749K(68288K)] 85838K(99008K), 0.0411190 secs] [Times: user=0.10 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+35.881: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+35.909: [GC (Allocation Failure) 35.909: [ParNew: 30719K-&gt;3392K(30720K), 0.0125646 secs] 91434K-&gt;66398K(99008K), 0.0128108 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+36.039: [GC (Allocation Failure) 36.039: [ParNew: 30720K-&gt;3392K(30720K), 0.0112797 secs] 78227K-&gt;53236K(99008K), 0.0115118 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+36.051: [CMS-concurrent-sweep: 0.130/0.170 secs] [Times: user=0.50 sys=0.05, real=0.18 secs] 
+36.062: [CMS-concurrent-reset-start]
+36.065: [CMS-concurrent-reset: 0.001/0.003 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+36.155: [GC (Allocation Failure) 36.156: [ParNew: 30720K-&gt;3391K(30720K), 0.0132940 secs] 79694K-&gt;54603K(99008K), 0.0135213 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+36.171: [GC (CMS Initial Mark) [1 CMS-initial-mark: 51211K(68288K)] 55179K(99008K), 0.0034665 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+36.175: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+36.275: [GC (Allocation Failure) 36.275: [ParNew: 30719K-&gt;3392K(30720K), 0.0124420 secs] 81931K-&gt;57061K(99008K), 0.0126613 secs] [Times: user=0.03 sys=0.01, real=0.02 secs] 
+<writer thread='11267'/>
+36.367: [CMS-concurrent-mark: 0.178/0.192 secs] [Times: user=0.64 sys=0.05, real=0.20 secs] 
+36.367: [CMS-concurrent-preclean-start]
+36.372: [CMS-concurrent-preclean: 0.004/0.004 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+36.372: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+36.397: [GC (Allocation Failure) 36.397: [ParNew: 30720K-&gt;3391K(30720K), 0.0149289 secs] 84389K-&gt;59872K(99008K), 0.0151804 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+36.519: [GC (Allocation Failure) 36.519: [ParNew: 30719K-&gt;3392K(30720K), 0.0144587 secs] 87200K-&gt;62241K(99008K), 0.0146949 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+36.576: [CMS-concurrent-abortable-preclean: 0.162/0.204 secs] [Times: user=0.65 sys=0.05, real=0.21 secs] 
+<writer thread='11779'/>
+36.578: [GC (CMS Final Remark) [YG occupancy: 15478 K (30720 K)]36.578: [Rescan (parallel) , 0.0064733 secs]36.585: [weak refs processing, 0.0020187 secs]36.587: [class unloading, 0.0163872 secs]36.603: [scrub symbol table, 0.0126291 secs]36.616: [scrub string table, 0.0013577 secs][1 CMS-remark: 58849K(68288K)] 74328K(99008K), 0.0392184 secs] [Times: user=0.07 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+36.618: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+36.677: [GC (Allocation Failure) 36.677: [ParNew: 30720K-&gt;3392K(30720K), 0.0119625 secs] 86061K-&gt;60905K(99008K), 0.0122060 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+36.803: [CMS-concurrent-sweep: 0.101/0.185 secs] [Times: user=0.58 sys=0.06, real=0.18 secs] 
+36.803: [CMS-concurrent-reset-start]
+36.804: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+36.806: [GC (Allocation Failure) 36.806: [ParNew: 30720K-&gt;3391K(30720K), 0.0119087 secs] 80081K-&gt;55300K(99008K), 0.0121565 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+36.819: [GC (CMS Initial Mark) [1 CMS-initial-mark: 51908K(68288K)] 55468K(99008K), 0.0027270 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+36.823: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+36.919: [GC (Allocation Failure) 36.919: [ParNew: 30719K-&gt;3392K(30720K), 0.0113532 secs] 82628K-&gt;57765K(99008K), 0.0116217 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+36.975: [CMS-concurrent-mark: 0.136/0.153 secs] [Times: user=0.47 sys=0.05, real=0.15 secs] 
+36.976: [CMS-concurrent-preclean-start]
+36.982: [CMS-concurrent-preclean: 0.006/0.006 secs] [Times: user=0.02 sys=0.01, real=0.01 secs] 
+36.984: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+37.049: [GC (Allocation Failure) 37.049: [ParNew: 30720K-&gt;3391K(30720K), 0.0120872 secs] 85093K-&gt;60536K(99008K), 0.0123020 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+37.126: [CMS-concurrent-abortable-preclean: 0.120/0.143 secs] [Times: user=0.44 sys=0.03, real=0.15 secs] 
+<writer thread='11779'/>
+37.129: [GC (CMS Final Remark) [YG occupancy: 21534 K (30720 K)]37.129: [Rescan (parallel) , 0.0077844 secs]37.137: [weak refs processing, 0.0020960 secs]37.139: [class unloading, 0.0247031 secs]37.164: [scrub symbol table, 0.0126679 secs]37.177: [scrub string table, 0.0010425 secs][1 CMS-remark: 57144K(68288K)] 78679K(99008K), 0.0595108 secs] [Times: user=0.08 sys=0.00, real=0.06 secs] 
+<writer thread='11267'/>
+37.189: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+37.230: [GC (Allocation Failure) 37.230: [ParNew: 30719K-&gt;3391K(30720K), 0.0133003 secs] 86064K-&gt;61282K(99008K), 0.0135782 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+37.298: [CMS-concurrent-sweep: 0.094/0.109 secs] [Times: user=0.36 sys=0.02, real=0.11 secs] 
+37.300: [CMS-concurrent-reset-start]
+37.300: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+37.366: [GC (Allocation Failure) 37.366: [ParNew: 30719K-&gt;3391K(30720K), 0.0128450 secs] 77396K-&gt;52833K(99008K), 0.0131333 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+37.494: [GC (Allocation Failure) 37.494: [ParNew: 30719K-&gt;3391K(30720K), 0.0122603 secs] 80161K-&gt;55248K(99008K), 0.0125019 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+37.508: [GC (CMS Initial Mark) [1 CMS-initial-mark: 51856K(68288K)] 55287K(99008K), 0.0030195 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+37.511: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+37.632: [GC (Allocation Failure) 37.632: [ParNew: 30719K-&gt;3392K(30720K), 0.0164756 secs] 82576K-&gt;57914K(99008K), 0.0167752 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+37.674: [CMS-concurrent-mark: 0.143/0.163 secs] [Times: user=0.48 sys=0.03, real=0.16 secs] 
+37.674: [CMS-concurrent-preclean-start]
+37.687: [CMS-concurrent-preclean: 0.011/0.012 secs] [Times: user=0.03 sys=0.01, real=0.02 secs] 
+<writer thread='11779'/>
+37.690: [GC (CMS Final Remark) [YG occupancy: 4465 K (30720 K)]37.690: [Rescan (parallel) , 0.0035319 secs]37.693: [weak refs processing, 0.0021675 secs]37.696: [class unloading, 0.0199695 secs]37.716: [scrub symbol table, 0.0175528 secs]37.733: [scrub string table, 0.0015217 secs][1 CMS-remark: 54522K(68288K)] 58987K(99008K), 0.0452039 secs] [Times: user=0.08 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+37.735: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+37.830: [GC (Allocation Failure) 37.830: [ParNew: 30720K-&gt;3391K(30720K), 0.0143641 secs] 84389K-&gt;59727K(99008K), 0.0146093 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+37.891: [CMS-concurrent-sweep: 0.140/0.156 secs] [Times: user=0.47 sys=0.05, real=0.16 secs] 
+37.891: [CMS-concurrent-reset-start]
+37.892: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+37.944: [GC (Allocation Failure) 37.944: [ParNew: 30719K-&gt;3391K(30720K), 0.0137360 secs] 74690K-&gt;50148K(99008K), 0.0140360 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+38.037: [GC (Allocation Failure) 38.038: [ParNew: 30697K-&gt;3391K(30720K), 0.0121844 secs] 77454K-&gt;52465K(99008K), 0.0124267 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+38.153: [GC (Allocation Failure) 38.153: [ParNew: 30719K-&gt;3392K(30720K), 0.0143161 secs] 79793K-&gt;55128K(99008K), 0.0145739 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+38.169: [GC (CMS Initial Mark) [1 CMS-initial-mark: 51736K(68288K)] 55233K(99008K), 0.0030030 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+38.172: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+38.276: [GC (Allocation Failure) 38.276: [ParNew: 30720K-&gt;3391K(30720K), 0.0126011 secs] 82456K-&gt;58289K(99008K), 0.0128352 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+38.387: [CMS-concurrent-mark: 0.200/0.214 secs] [Times: user=0.72 sys=0.06, real=0.22 secs] 
+38.388: [CMS-concurrent-preclean-start]
+38.394: [CMS-concurrent-preclean: 0.005/0.005 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
+38.395: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+38.413: [GC (Allocation Failure) 38.413: [ParNew: 30719K-&gt;3392K(30720K), 0.0159751 secs] 85617K-&gt;61254K(99008K), 0.0162090 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+38.616: [GC (Allocation Failure) 38.616: [ParNew: 30720K-&gt;3392K(30720K), 0.0226202 secs] 88582K-&gt;63950K(99008K), 0.0228673 secs] [Times: user=0.06 sys=0.00, real=0.03 secs] 
+<writer thread='11267'/>
+38.653: [CMS-concurrent-abortable-preclean: 0.208/0.257 secs] [Times: user=0.54 sys=0.05, real=0.26 secs] 
+<writer thread='11779'/>
+38.655: [GC (CMS Final Remark) [YG occupancy: 6978 K (30720 K)]38.655: [Rescan (parallel) , 0.0044836 secs]38.660: [weak refs processing, 0.0029517 secs]38.663: [class unloading, 0.0184362 secs]38.681: [scrub symbol table, 0.0127274 secs]38.694: [scrub string table, 0.0009565 secs][1 CMS-remark: 60558K(68288K)] 67536K(99008K), 0.0401497 secs] [Times: user=0.08 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+38.696: [CMS-concurrent-sweep-start]
+38.751: [CMS-concurrent-sweep: 0.055/0.055 secs] [Times: user=0.18 sys=0.01, real=0.06 secs] 
+38.751: [CMS-concurrent-reset-start]
+38.751: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+38.794: [GC (Allocation Failure) 38.794: [ParNew: 30720K-&gt;3391K(30720K), 0.0145979 secs] 78706K-&gt;53882K(99008K), 0.0148949 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+38.918: [GC (Allocation Failure) 38.918: [ParNew: 30719K-&gt;3392K(30720K), 0.0194127 secs] 81210K-&gt;57883K(99008K), 0.0196537 secs] [Times: user=0.06 sys=0.00, real=0.02 secs] 
+38.939: [GC (CMS Initial Mark) [1 CMS-initial-mark: 54491K(68288K)] 57951K(99008K), 0.0031216 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+38.943: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+39.188: [GC (Allocation Failure) 39.188: [ParNew: 30720K-&gt;3392K(30720K), 0.0186438 secs] 85211K-&gt;60324K(99008K), 0.0188685 secs] [Times: user=0.06 sys=0.00, real=0.02 secs] 
+39.307: [GC (Allocation Failure) 39.307: [ParNew: 30720K-&gt;3391K(30720K), 0.0294409 secs] 87652K-&gt;63279K(99008K), 0.0296993 secs] [Times: user=0.05 sys=0.00, real=0.03 secs] 
+<writer thread='11267'/>
+39.450: [CMS-concurrent-mark: 0.357/0.507 secs] [Times: user=1.13 sys=0.09, real=0.51 secs] 
+39.450: [CMS-concurrent-preclean-start]
+39.473: [CMS-concurrent-preclean: 0.019/0.023 secs] [Times: user=0.09 sys=0.01, real=0.03 secs] 
+<writer thread='11779'/>
+39.478: [GC (Allocation Failure) 39.478: [ParNew: 30715K-&gt;3391K(30720K), 0.0252524 secs] 90603K-&gt;66109K(99008K), 0.0262452 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+39.508: [GC (CMS Final Remark) [YG occupancy: 3711 K (30720 K)]39.508: [Rescan (parallel) , 0.0165560 secs]39.525: [weak refs processing, 0.0045120 secs]39.530: [class unloading, 0.0241203 secs]39.554: [scrub symbol table, 0.0146489 secs]39.569: [scrub string table, 0.0013607 secs][1 CMS-remark: 62717K(68288K)] 66428K(99008K), 0.0616761 secs] [Times: user=0.08 sys=0.00, real=0.06 secs] 
+<writer thread='11267'/>
+39.571: [CMS-concurrent-sweep-start]
+39.665: [CMS-concurrent-sweep: 0.093/0.093 secs] [Times: user=0.11 sys=0.01, real=0.09 secs] 
+39.665: [CMS-concurrent-reset-start]
+39.665: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+39.764: [GC (Allocation Failure) 39.764: [ParNew: 30719K-&gt;3391K(30720K), 0.0158858 secs] 78590K-&gt;53844K(99008K), 0.0161246 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+39.930: [GC (Allocation Failure) 39.931: [ParNew: 30719K-&gt;3392K(30720K), 0.0186742 secs] 81172K-&gt;56466K(99008K), 0.0188907 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+39.950: [GC (CMS Initial Mark) [1 CMS-initial-mark: 53074K(68288K)] 56474K(99008K), 0.0033683 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+39.954: [CMS-concurrent-mark-start]
+40.161: [CMS-concurrent-mark: 0.207/0.207 secs] [Times: user=0.28 sys=0.03, real=0.21 secs] 
+40.161: [CMS-concurrent-preclean-start]
+40.164: [CMS-concurrent-preclean: 0.003/0.003 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+40.164: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+40.233: [GC (Allocation Failure) 40.233: [ParNew: 30720K-&gt;3392K(30720K), 0.0180393 secs] 83794K-&gt;58883K(99008K), 0.0183395 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+40.405: [GC (Allocation Failure) 40.405: [ParNew: 30720K-&gt;3392K(30720K), 0.0250032 secs] 86211K-&gt;61830K(99008K), 0.0252340 secs] [Times: user=0.04 sys=0.00, real=0.03 secs] 
+<writer thread='11267'/>
+40.474: [CMS-concurrent-abortable-preclean: 0.143/0.309 secs] [Times: user=0.70 sys=0.06, real=0.31 secs] 
+<writer thread='11779'/>
+40.476: [GC (CMS Final Remark) [YG occupancy: 10396 K (30720 K)]40.476: [Rescan (parallel) , 0.0132524 secs]40.489: [weak refs processing, 0.0073347 secs]40.497: [class unloading, 0.0249140 secs]40.521: [scrub symbol table, 0.0154798 secs]40.537: [scrub string table, 0.0013351 secs][1 CMS-remark: 58438K(68288K)] 68834K(99008K), 0.0627557 secs] [Times: user=0.09 sys=0.00, real=0.07 secs] 
+<writer thread='11267'/>
+40.539: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+40.626: [GC (Allocation Failure) 40.626: [ParNew: 30720K-&gt;3392K(30720K), 0.0373374 secs] 85915K-&gt;62076K(99008K), 0.0376595 secs] [Times: user=0.06 sys=0.00, real=0.04 secs] 
+<writer thread='11267'/>
+40.685: [CMS-concurrent-sweep: 0.107/0.146 secs] [Times: user=0.38 sys=0.03, real=0.15 secs] 
+40.687: [CMS-concurrent-reset-start]
+40.687: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+40.776: [GC (Allocation Failure) 40.776: [ParNew: 30720K-&gt;3391K(30720K), 0.0285705 secs] 80034K-&gt;55200K(99008K), 0.0288329 secs] [Times: user=0.05 sys=0.00, real=0.03 secs] 
+40.808: [GC (CMS Initial Mark) [1 CMS-initial-mark: 51808K(68288K)] 56313K(99008K), 0.0045661 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+40.813: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+40.956: [GC (Allocation Failure) 40.957: [ParNew: 30719K-&gt;3392K(30720K), 0.0189378 secs] 82528K-&gt;57508K(99008K), 0.0192036 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+41.150: [GC (Allocation Failure) 41.151: [ParNew: 30720K-&gt;3391K(30720K), 0.0277340 secs] 84836K-&gt;59975K(99008K), 0.0284789 secs] [Times: user=0.04 sys=0.00, real=0.03 secs] 
+<writer thread='11267'/>
+41.190: [CMS-concurrent-mark: 0.317/0.373 secs] [Times: user=0.88 sys=0.08, real=0.38 secs] 
+41.191: [CMS-concurrent-preclean-start]
+<writer thread='11779'/>
+41.326: [GC (Allocation Failure) 41.327: [ParNew: 30695K-&gt;3391K(30720K), 0.0171786 secs] 87279K-&gt;62639K(99008K), 0.0174119 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+41.359: [CMS-concurrent-preclean: 0.147/0.168 secs] [Times: user=0.45 sys=0.04, real=0.17 secs] 
+41.359: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+41.496: [GC (Allocation Failure) 41.497: [ParNew: 30719K-&gt;3392K(30720K), 0.0193107 secs] 89967K-&gt;65355K(99008K), 0.0198295 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+41.580: [CMS-concurrent-abortable-preclean: 0.161/0.221 secs] [Times: user=0.61 sys=0.04, real=0.22 secs] 
+<writer thread='11779'/>
+41.581: [GC (CMS Final Remark) [YG occupancy: 19606 K (30720 K)]41.581: [Rescan (parallel) , 0.0078781 secs]41.589: [weak refs processing, 0.0028603 secs]41.592: [class unloading, 0.0442979 secs]41.636: [scrub symbol table, 0.0140542 secs]41.651: [scrub string table, 0.0008252 secs][1 CMS-remark: 61963K(68288K)] 81570K(99008K), 0.0702166 secs] [Times: user=0.07 sys=0.00, real=0.07 secs] 
+<writer thread='11267'/>
+41.652: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+41.695: [GC (Allocation Failure) 41.695: [ParNew: 30720K-&gt;3391K(30720K), 0.0163524 secs] 91542K-&gt;67522K(99008K), 0.0165972 secs] [Times: user=0.03 sys=0.01, real=0.02 secs] 
+<writer thread='11267'/>
+41.801: [CMS-concurrent-sweep: 0.129/0.149 secs] [Times: user=0.39 sys=0.04, real=0.15 secs] 
+41.802: [CMS-concurrent-reset-start]
+41.802: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+41.829: [GC (Allocation Failure) 41.829: [ParNew: 30719K-&gt;3392K(30720K), 0.0125481 secs] 83345K-&gt;59079K(99008K), 0.0128391 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+41.891: [GC (CMS Initial Mark) [1 CMS-initial-mark: 55687K(68288K)] 68877K(99008K), 0.0064423 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+41.898: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+42.012: [GC (Allocation Failure) 42.012: [ParNew: 30720K-&gt;3391K(30720K), 0.0175173 secs] 86407K-&gt;61568K(99008K), 0.0177502 secs] [Times: user=0.05 sys=0.00, real=0.02 secs] 
+42.147: [GC (Allocation Failure) 42.149: [ParNew: 30704K-&gt;3392K(30720K), 0.0182478 secs] 88880K-&gt;64759K(99008K), 0.0200530 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+42.213: [CMS-concurrent-mark: 0.272/0.314 secs] [Times: user=0.79 sys=0.05, real=0.31 secs] 
+42.213: [CMS-concurrent-preclean-start]
+42.223: [CMS-concurrent-preclean: 0.008/0.009 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+42.224: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+42.342: [GC (Allocation Failure) 42.343: [ParNew: 30720K-&gt;3391K(30720K), 0.0289758 secs] 92087K-&gt;68804K(99008K), 0.0291985 secs] [Times: user=0.08 sys=0.00, real=0.03 secs] 
+<writer thread='11267'/>
+42.430: [CMS-concurrent-abortable-preclean: 0.174/0.206 secs] [Times: user=0.48 sys=0.04, real=0.21 secs] 
+<writer thread='11779'/>
+42.436: [GC (CMS Final Remark) [YG occupancy: 22685 K (30720 K)]42.436: [Rescan (parallel) , 0.0099734 secs]42.446: [weak refs processing, 0.0085377 secs]42.454: [class unloading, 0.0258849 secs]42.480: [scrub symbol table, 0.0137535 secs]42.494: [scrub string table, 0.0017623 secs][1 CMS-remark: 65412K(68288K)] 88098K(99008K), 0.0603896 secs] [Times: user=0.08 sys=0.01, real=0.06 secs] 
+<writer thread='11267'/>
+42.496: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+42.555: [GC (Allocation Failure) 42.555: [ParNew: 30719K-&gt;3392K(30720K), 0.0156475 secs] 91732K-&gt;67605K(99008K), 0.0159682 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+42.586: [CMS-concurrent-sweep: 0.072/0.089 secs] [Times: user=0.23 sys=0.00, real=0.09 secs] 
+42.586: [CMS-concurrent-reset-start]
+42.586: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+42.718: [GC (Allocation Failure) 42.718: [ParNew: 30720K-&gt;3392K(30720K), 0.0216132 secs] 82826K-&gt;59195K(99008K), 0.0218346 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+42.741: [GC (CMS Initial Mark) [1 CMS-initial-mark: 55803K(68288K)] 59201K(99008K), 0.0033749 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+42.744: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+42.884: [GC (Allocation Failure) 42.884: [ParNew: 30720K-&gt;3392K(30720K), 0.0184681 secs] 86523K-&gt;62665K(99008K), 0.0186991 secs] [Times: user=0.06 sys=0.01, real=0.02 secs] 
+42.994: [GC (Allocation Failure) 42.994: [ParNew: 30720K-&gt;3392K(30720K), 0.0222683 secs] 89993K-&gt;65205K(99008K), 0.0224781 secs] [Times: user=0.05 sys=0.00, real=0.03 secs] 
+<writer thread='11267'/>
+43.093: [CMS-concurrent-mark: 0.250/0.348 secs] [Times: user=0.94 sys=0.06, real=0.35 secs] 
+43.094: [CMS-concurrent-preclean-start]
+43.105: [CMS-concurrent-preclean: 0.010/0.010 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+43.105: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+43.178: [GC (Allocation Failure) 43.178: [ParNew: 30720K-&gt;3392K(30720K), 0.0225686 secs] 92533K-&gt;67985K(99008K), 0.0228087 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+43.402: [GC (Allocation Failure) 43.403: [ParNew: 30720K-&gt;3391K(30720K), 0.0203010 secs] 95313K-&gt;71428K(99008K), 0.0205227 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+43.460: [CMS-concurrent-abortable-preclean: 0.285/0.355 secs] [Times: user=0.72 sys=0.06, real=0.36 secs] 
+<writer thread='11779'/>
+43.462: [GC (CMS Final Remark) [YG occupancy: 12617 K (30720 K)]43.462: [Rescan (parallel) , 0.0079863 secs]43.470: [weak refs processing, 0.0061392 secs]43.476: [class unloading, 0.0176069 secs]43.494: [scrub symbol table, 0.0137207 secs]43.507: [scrub string table, 0.0009401 secs][1 CMS-remark: 68036K(68288K)] 80654K(99008K), 0.0468181 secs] [Times: user=0.11 sys=0.01, real=0.05 secs] 
+<writer thread='11267'/>
+43.509: [CMS-concurrent-sweep-start]
+43.569: [CMS-concurrent-sweep: 0.060/0.060 secs] [Times: user=0.18 sys=0.01, real=0.06 secs] 
+43.569: [CMS-concurrent-reset-start]
+43.569: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+43.587: [GC (Allocation Failure) 43.587: [ParNew: 30719K-&gt;3392K(30720K), 0.0165437 secs] 83811K-&gt;59374K(99008K), 0.0167666 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+43.616: [GC (CMS Initial Mark) [1 CMS-initial-mark: 55982K(68288K)] 61882K(99008K), 0.0036238 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+43.697: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+43.702: [GC (Allocation Failure) 43.702: [ParNew: 30720K-&gt;3392K(30720K), 0.0138940 secs] 86702K-&gt;62299K(99008K), 0.0141798 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+43.842: [GC (Allocation Failure) 43.842: [ParNew: 30720K-&gt;3392K(30720K), 0.0157543 secs] 89627K-&gt;65296K(99008K), 0.0159707 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+43.942: [GC (Allocation Failure) 43.942: [ParNew: 30720K-&gt;3392K(30720K), 0.0140404 secs] 92624K-&gt;68205K(99008K), 0.0143013 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+44.024: [CMS-concurrent-mark: 0.278/0.326 secs] [Times: user=1.19 sys=0.11, real=0.32 secs] 
+44.025: [CMS-concurrent-preclean-start]
+44.029: [CMS-concurrent-preclean: 0.004/0.004 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+44.031: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+44.122: [GC (Allocation Failure) 44.123: [ParNew (promotion failed): 30720K-&gt;30720K(30720K), 0.0282038 secs]44.151: [CMS
+<writer thread='11267'/>
+44.163: [CMS-concurrent-abortable-preclean: 0.100/0.132 secs] [Times: user=0.25 sys=0.02, real=0.13 secs] 
+<writer thread='11779'/>
+ (concurrent mode failure): 68090K-&gt;46018K(68288K), 0.2541573 secs] 95533K-&gt;46018K(99008K), [Metaspace: 60865K-&gt;60865K(1105920K)], 0.2826569 secs] [Times: user=0.30 sys=0.00, real=0.28 secs] 
+44.504: [GC (Allocation Failure) 44.504: [ParNew: 27328K-&gt;3392K(30720K), 0.0117524 secs] 73346K-&gt;51543K(99008K), 0.0120138 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+44.611: [GC (Allocation Failure) 44.611: [ParNew: 30720K-&gt;3391K(30720K), 0.0114766 secs] 78871K-&gt;54224K(99008K), 0.0117134 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+44.624: [GC (CMS Initial Mark) [1 CMS-initial-mark: 50832K(68288K)] 54229K(99008K), 0.0032096 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+44.627: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+44.753: [GC (Allocation Failure) 44.753: [ParNew: 30719K-&gt;3391K(30720K), 0.0147543 secs] 81552K-&gt;57979K(99008K), 0.0149598 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+44.782: [CMS-concurrent-mark: 0.138/0.154 secs] [Times: user=0.50 sys=0.03, real=0.15 secs] 
+44.782: [CMS-concurrent-preclean-start]
+44.785: [CMS-concurrent-preclean: 0.003/0.003 secs] [Times: user=0.01 sys=0.01, real=0.00 secs] 
+44.786: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+44.906: [GC (Allocation Failure) 44.906: [ParNew: 30719K-&gt;3392K(30720K), 0.0148020 secs] 85307K-&gt;60815K(99008K), 0.0151194 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+44.977: [CMS-concurrent-abortable-preclean: 0.156/0.190 secs] [Times: user=0.57 sys=0.05, real=0.20 secs] 
+<writer thread='11779'/>
+44.980: [GC (CMS Final Remark) [YG occupancy: 19641 K (30720 K)]44.980: [Rescan (parallel) , 0.0067083 secs]44.986: [weak refs processing, 0.0003855 secs]44.987: [class unloading, 0.0180962 secs]45.005: [scrub symbol table, 0.0124154 secs]45.017: [scrub string table, 0.0008128 secs][1 CMS-remark: 57423K(68288K)] 77065K(99008K), 0.0387707 secs] [Times: user=0.05 sys=0.01, real=0.04 secs] 
+<writer thread='11267'/>
+45.019: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+45.055: [GC (Allocation Failure) 45.055: [ParNew: 30720K-&gt;3392K(30720K), 0.0133445 secs] 87679K-&gt;63306K(99008K), 0.0136083 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+45.120: [CMS-concurrent-sweep: 0.086/0.101 secs] [Times: user=0.27 sys=0.03, real=0.10 secs] 
+45.120: [CMS-concurrent-reset-start]
+45.120: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+45.175: [GC (Allocation Failure) 45.175: [ParNew: 30720K-&gt;3391K(30720K), 0.0115067 secs] 77217K-&gt;52180K(99008K), 0.0117402 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
+45.188: [GC (CMS Initial Mark) [1 CMS-initial-mark: 48788K(68288K)] 52392K(99008K), 0.0027919 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+<writer thread='11267'/>
+45.191: [CMS-concurrent-mark-start]
+<writer thread='11779'/>
+45.336: [GC (Allocation Failure) 45.336: [ParNew: 30719K-&gt;3391K(30720K), 0.0114034 secs] 79508K-&gt;54685K(99008K), 0.0116029 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+45.437: [CMS-concurrent-mark: 0.233/0.246 secs] [Times: user=0.68 sys=0.05, real=0.25 secs] 
+45.437: [CMS-concurrent-preclean-start]
+45.440: [CMS-concurrent-preclean: 0.003/0.003 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+45.441: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+45.470: [GC (Allocation Failure) 45.470: [ParNew: 30719K-&gt;3392K(30720K), 0.0187906 secs] 82013K-&gt;57242K(99008K), 0.0190261 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+45.588: [CMS-concurrent-abortable-preclean: 0.056/0.147 secs] [Times: user=0.46 sys=0.04, real=0.15 secs] 
+<writer thread='11779'/>
+45.589: [GC (CMS Final Remark) [YG occupancy: 27732 K (30720 K)]45.589: [Rescan (parallel) , 0.0121652 secs]45.601: [weak refs processing, 0.0033915 secs]45.605: [class unloading, 0.0183611 secs]45.623: [scrub symbol table, 0.0139282 secs]45.637: [scrub string table, 0.0009492 secs][1 CMS-remark: 53850K(68288K)] 81583K(99008K), 0.0492425 secs] [Times: user=0.07 sys=0.00, real=0.05 secs] 
+<writer thread='11267'/>
+45.638: [CMS-concurrent-sweep-start]
+<writer thread='11779'/>
+45.654: [GC (Allocation Failure) 45.654: [ParNew: 30720K-&gt;3392K(30720K), 0.0146547 secs] 84265K-&gt;59196K(99008K), 0.0148908 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+45.765: [GC (Allocation Failure) 45.766: [ParNew: 30720K-&gt;3391K(30720K), 0.0115511 secs] 79041K-&gt;54016K(99008K), 0.0117856 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
+<writer thread='11267'/>
+45.780: [CMS-concurrent-sweep: 0.112/0.141 secs] [Times: user=0.40 sys=0.05, real=0.14 secs] 
+45.780: [CMS-concurrent-reset-start]
+45.780: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+45.930: [GC (Allocation Failure) 45.930: [ParNew: 30719K-&gt;3391K(30720K), 0.0101803 secs] 78738K-&gt;53946K(99008K), 0.0104059 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+46.060: [GC (Allocation Failure) 46.060: [ParNew: 30719K-&gt;3392K(30720K), 0.0127682 secs] 81274K-&gt;56533K(99008K), 0.0130123 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+46.074: [GC (CMS Initial Mark) [1 CMS-initial-mark: 53141K(68288K)] 56541K(99008K), 0.0026945 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+46.077: [CMS-concurrent-mark-start]
+46.180: [CMS-concurrent-mark: 0.103/0.103 secs] [Times: user=0.35 sys=0.02, real=0.10 secs] 
+46.180: [CMS-concurrent-preclean-start]
+46.182: [CMS-concurrent-preclean: 0.002/0.002 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+46.182: [CMS-concurrent-abortable-preclean-start]
+<writer thread='11779'/>
+46.290: [GC (Allocation Failure) 46.290: [ParNew: 30720K-&gt;3392K(30720K), 0.0115688 secs] 83861K-&gt;58756K(99008K), 0.0117800 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='11267'/>
+46.460: [CMS-concurrent-abortable-preclean: 0.102/0.278 secs] [Times: user=0.89 sys=0.04, real=0.28 secs] 
+<writer thread='11779'/>
+46.461: [GC (CMS Final Remark) [YG occupancy: 20438 K (30720 K)]46.461: [Rescan (parallel) , 0.0111215 secs]46.472: [weak refs processing, 0.0018809 secs]46.474: [class unloading, 0.0183316 secs]46.493: [scrub symbol table, 0.0131583 secs]46.506: [scrub string table, 0.0008725 secs][1 CMS-remark: 55364K(68288K)] 75802K(99008K), 0.0457499 secs] [Times: user=0.07 sys=0.00, real=0.05 secs] 
+<writer thread='11267'/>
+46.507: [CMS-concurrent-sweep-start]
+46.552: [CMS-concurrent-sweep: 0.044/0.044 secs] [Times: user=0.11 sys=0.00, real=0.04 secs] 
+46.552: [CMS-concurrent-reset-start]
+46.552: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+<writer thread='11779'/>
+46.741: [GC (Allocation Failure) 46.741: [ParNew: 30720K-&gt;3392K(30720K), 0.0413945 secs] 70815K-&gt;45560K(99008K), 0.0416082 secs] [Times: user=0.05 sys=0.00, real=0.04 secs] 
+47.118: [GC (Allocation Failure) 47.118: [ParNew: 30720K-&gt;3392K(30720K), 0.0167320 secs] 72888K-&gt;48072K(99008K), 0.0169741 secs] [Times: user=0.03 sys=0.00, real=0.01 secs] 
+<writer thread='128519'/>
+Heap
+ par new generation   total 30720K, used 3684K [0x00000007b9c00000, 0x00000007bbd50000, 0x00000007bbd50000)
+  eden space 27328K,   1% used [0x00000007b9c00000, 0x00000007b9c49188, 0x00000007bb6b0000)
+  from space 3392K, 100% used [0x00000007bb6b0000, 0x00000007bba00000, 0x00000007bba00000)
+  to   space 3392K,   0% used [0x00000007bba00000, 0x00000007bba00000, 0x00000007bbd50000)
+ concurrent mark-sweep generation total 68288K, used 44680K [0x00000007bbd50000, 0x00000007c0000000, 0x00000007c0000000)
+ Metaspace       used 60967K, capacity 63594K, committed 65536K, reserved 1105920K
+  class space    used 7213K, capacity 7861K, committed 8192K, reserved 1048576K
+<tty_done stamp='47.500'/>
+</tty>
+<hotspot_log_done stamp='47.500'/>
+</hotspot_log>

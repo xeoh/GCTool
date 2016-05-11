@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "edu.kaist.algo.client";
+
+// The client streams the file contents to the server,
+// and requests for the result status.
+service GcService {
+  rpc InfoUpload (FileInfo) returns (FileUploadResult)
+  rpc LogUpload (stream UploadRequest) returns (UploadResult) {}
+}
+
+// Meta-information about the file being uploaded.
+message FileInfo {
+  string filename = 1;
+}
+
+// The result of receiving information and opening the file.
+message FileUploadResult {
+  bool successful = 1;
+}
+
+// The file name to upload.
+message UploadRequest {
+  bytes contents = 1;
+}
+
+// The response contains whether the request was successful and
+// the requestID for further identification uses.
+message UploadResult {
+  bool successful = 1;
+  int32 id = 2;
+  int64 filesize = 3;
+}

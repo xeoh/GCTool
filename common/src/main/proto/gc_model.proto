@@ -16,9 +16,9 @@ message GcEvent {
     uint64 timestamp = 2;                       // time stamp(time since JVM startup)
     string datetime = 3;                        // utc time
     LogType log_type = 4;                       // log type
-    float pause_time = 5;                       // duration of GC event in seconds
-    float user_time = 6;                        // total CPU time of GC event
-    float sys_time = 7;                         // time spent in OS call or waiting for system event
-    float real_time = 8;                        // (user_time + sys_tim) / threads# + alpha
-    float ref_time = 9;                         // reference processing time
+    double pause_time = 5;                       // duration of GC event in seconds
+    double user_time = 6;                        // total CPU time of GC event
+    double sys_time = 7;                         // time spent in OS call or waiting for system event
+    double real_time = 8;                        // (user_time + sys_tim) / threads# + alpha
+    double ref_time = 9;                         // reference processing time
 }

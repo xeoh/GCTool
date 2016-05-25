@@ -26,8 +26,8 @@ import java.net.URL;
  * file contents.
  */
 @RunWith(JUnit4.class)
-public class LogUploadServerTest {
-  private LogUploadServer server;
+public class LogUploadImplTest {
+  private GcToolServer server;
   private LogUploadClient client;
   private File uploadfile;
   private static final String UPLOADED_FILE_NAME = "uploaded.log";
@@ -42,7 +42,7 @@ public class LogUploadServerTest {
    */
   @Before
   public void setUp() {
-    server = new LogUploadServer(50051);
+    server = new GcToolServer(50051);
     client = new LogUploadClient("localhost", 50051);
 
     // start the server

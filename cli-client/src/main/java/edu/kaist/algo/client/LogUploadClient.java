@@ -33,8 +33,8 @@ public class LogUploadClient {
   private static final Logger logger = LoggerFactory.getLogger(LogUploadClient.class);
 
   private final ManagedChannel channel;
-  private final GcServiceGrpc.GcServiceStub asyncStub;
-  private final GcServiceGrpc.GcServiceBlockingStub blockingStub;
+  private final LogUploadGrpc.LogUploadStub asyncStub;
+  private final LogUploadGrpc.LogUploadBlockingStub blockingStub;
   private static final int BUFFER_SIZE = 1024;
 
   /**
@@ -48,8 +48,8 @@ public class LogUploadClient {
         .usePlaintext(true)
         .build();
     // a streaming stubs
-    asyncStub = GcServiceGrpc.newStub(channel);
-    blockingStub = GcServiceGrpc.newBlockingStub(channel);
+    asyncStub = LogUploadGrpc.newStub(channel);
+    blockingStub = LogUploadGrpc.newBlockingStub(channel);
   }
 
 

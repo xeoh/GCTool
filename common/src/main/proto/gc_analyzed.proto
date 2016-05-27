@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_package = "edu.kaist.algo.model";
+option java_multiple_files = true;
+
+import "gc_model.proto";
+import "statistic_model.proto";
+
+// Final analyzed data for each file
+message GcAnalyzedData {
+    repeated GcPauseStat pauses = 1;
+}
+
+// Analyzed data for each metric (FULL_GC, MINOR_GC, CMS_INIT_MARK, CMS_FINAL_REMARK)
+message GcPauseStat {
+    GcEvent.LogType type = 1;
+
+    int32 count = 2;
+    double total_pause_time= 3;
+    double sample_mean = 4;
+    double sample_std_dev = 5;
+    double sample_median = 6;
+
+    GcEvent min_event = 7;
+    GcEvent max_event = 8;
+
+    repeated GcEstimatedPauseTime means = 9;
+    repeated GcPauseOutliers outliers = 10;
+}
+
+// Estimated mean of pause time
+message GcEstimatedPauseTime {
+    double level = 1;
+    MeanRange mean = 2;
+}
+
+// Outliers of pause time
+message GcPauseOutliers {
+    double level = 1;
+    repeated GcEvent events = 2;
+}

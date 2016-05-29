@@ -4,7 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import edu.kaist.algo.client.LogUploadClient;
+import edu.kaist.algo.client.LogUploader;
+
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+
 
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
@@ -20,6 +24,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The server receives the file from the client and tests the validity of
@@ -27,11 +32,10 @@ import java.net.URL;
  */
 @RunWith(JUnit4.class)
 public class LogUploadImplTest {
-  private GcToolServer server;
-  private LogUploadClient client;
-  private File uploadfile;
+  private File uploadFile;
   private static final String UPLOADED_FILE_NAME = "uploaded.log";
   private static final String RESOURCE_FILE_NAME = "hotspot_pid6017.log";
+  private static final int TEST_PORT = 50053;
 
   // open a sample real GC log file
   @Rule
@@ -42,8 +46,7 @@ public class LogUploadImplTest {
    */
   @Before
   public void setUp() {
-    server = new GcToolServer(50051);
-    client = new LogUploadClient("localhost", 50051);
+    GcToolServer server = new GcToolServer(TEST_PORT);
 
     // start the server
     try {
@@ -53,11 +56,8 @@ public class LogUploadImplTest {
       System.err.println("LogUploadClientTest : server failed to start.");
     }
 
-    // open client
-    client = new LogUploadClient("localhost", 50051);
-
     // indicate the test logfile
-    uploadfile = resourceFile.getFile();
+    uploadFile = resourceFile.getFile();
   }
 
   /**
@@ -109,22 +109,26 @@ public class LogUploadImplTest {
   @Test
   public void logUploadServerFileContentsTest() {
     // assert that upload resource file exists
-    assertTrue(uploadfile.exists());
+    assertTrue(uploadFile.exists());
 
-    // give the filename to server to open
-    client.infoUpload(UPLOADED_FILE_NAME);
+    ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", TEST_PORT)
+        .usePlaintext(true)
+        .build();
 
-    // transfer file via gRPC
+    LogUploader logUploader = new LogUploader(channel);
+
+    // test block of log uploading
     try {
-      client.logUpload(resourceFile.getInputstream());
+      logUploader.uploadInfo(UPLOADED_FILE_NAME);
+      logUploader.uploadLog(resourceFile.getInputstream());
     } catch (InterruptedException ie) {
       System.err.println("Interrupted during upload!");
     }
-    // wait until the client has done transmitting
+
     try {
-      client.shutdown();
+      channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     } catch (InterruptedException ie) {
-      System.err.println("Client ended during shutdown");
+      fail("Client ended during shutdown");
     }
 
     // open the result file and assert their existence
@@ -133,13 +137,13 @@ public class LogUploadImplTest {
 
     // compare the contents of resulting file and target file
     try {
-      assertTrue(FileUtils.contentEquals(uploadfile, resultfile));
+      assertTrue(FileUtils.contentEquals(uploadFile, resultfile));
     } catch (IOException io) {
       fail("File contents does not match!");
     }
 
     // compare the size
-    assertEquals(FileUtils.sizeOf(uploadfile), FileUtils.sizeOf(resultfile));
+    assertEquals(FileUtils.sizeOf(uploadFile), FileUtils.sizeOf(resultfile));
   }
 
   /**
@@ -147,7 +151,7 @@ public class LogUploadImplTest {
    */
   @After
   public void cleanUp() {
-    File resultfile = new File(UPLOADED_FILE_NAME);
-    resultfile.deleteOnExit();
+    File resultFile = new File(UPLOADED_FILE_NAME);
+    resultFile.deleteOnExit();
   }
 }

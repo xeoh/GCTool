@@ -1,6 +1,6 @@
 package edu.kaist.algo.analyzer;
 
-import edu.kaist.algo.model.MeanRange;
+import edu.kaist.algo.statistics.MeanRange;
 
 import org.apache.commons.math3.distribution.TDistribution;
 

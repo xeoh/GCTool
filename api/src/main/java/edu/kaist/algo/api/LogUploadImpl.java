@@ -2,11 +2,11 @@ package edu.kaist.algo.api;
 
 import com.google.protobuf.ByteString;
 
-import edu.kaist.algo.client.FileInfo;
-import edu.kaist.algo.client.FileUploadResult;
-import edu.kaist.algo.client.LogUploadGrpc;
-import edu.kaist.algo.client.UploadRequest;
-import edu.kaist.algo.client.UploadResult;
+import edu.kaist.algo.service.FileInfo;
+import edu.kaist.algo.service.FileUploadResult;
+import edu.kaist.algo.service.LogUploadGrpc;
+import edu.kaist.algo.service.UploadRequest;
+import edu.kaist.algo.service.UploadResult;
 
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;

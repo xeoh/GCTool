@@ -2,7 +2,7 @@ package edu.kaist.algo.api;
 
 import com.google.common.annotations.VisibleForTesting;
 
-import edu.kaist.algo.client.LogUploadGrpc;
+import edu.kaist.algo.service.LogUploadGrpc;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;

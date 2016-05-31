@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-option java_package = "edu.kaist.algo.model";
+option java_package = "edu.kaist.algo.analysis";
 option java_multiple_files = true;
 
 import "gc_model.proto";
-import "statistic_model.proto";
+import "gc_statistics.proto";
 
 // Final analyzed data for each file
 message GcAnalyzedData {

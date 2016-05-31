@@ -2,7 +2,7 @@ package edu.kaist.algo.analyzer;
 
 import static org.junit.Assert.assertEquals;
 
-import edu.kaist.algo.model.MeanRange;
+import edu.kaist.algo.statistics.MeanRange;
 
 import org.junit.Before;
 import org.junit.Test;

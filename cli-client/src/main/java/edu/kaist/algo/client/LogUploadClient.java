@@ -2,14 +2,14 @@ package edu.kaist.algo.client;
 
 import static com.google.protobuf.ByteString.readFrom;
 
+import com.google.common.annotations.VisibleForTesting;
+import com.google.protobuf.ByteString;
+
 import edu.kaist.algo.service.FileInfo;
 import edu.kaist.algo.service.FileUploadResult;
 import edu.kaist.algo.service.LogUploadGrpc;
 import edu.kaist.algo.service.UploadRequest;
 import edu.kaist.algo.service.UploadResult;
-
-import com.google.common.annotations.VisibleForTesting;
-import com.google.protobuf.ByteString;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;

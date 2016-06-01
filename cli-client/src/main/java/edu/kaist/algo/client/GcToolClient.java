@@ -191,12 +191,12 @@ public class GcToolClient {
     }
 
     // give the filename to server to open on server
-    logUploader.uploadInfo(parsedOptions.getFilename());
+    long ticket = logUploader.uploadInfo(parsedOptions.getFilename());
 
     // Send and upload the file
     try {
       FileInputStream inputStream = FileUtils.openInputStream(logfile);
-      logUploader.uploadLog(inputStream);
+      logUploader.uploadLog(ticket, inputStream);
     } catch (InterruptedException ie) {
       System.out.println("File upload failed due to interruption.");
     } catch (IOException ioe) {

@@ -9,7 +9,7 @@ import edu.kaist.algo.client.LogUploader;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
-
+import com.fiftyonred.mock_jedis.MockJedisPool;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -18,6 +18,8 @@ import org.junit.Test;
 import org.junit.rules.ExternalResource;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,7 +48,8 @@ public class LogUploadImplTest {
    */
   @Before
   public void setUp() {
-    GcToolServer server = new GcToolServer(TEST_PORT);
+    JedisPool jedisPool = new MockJedisPool(new JedisPoolConfig(), "localhost");
+    GcToolServer server = new GcToolServer(TEST_PORT, jedisPool);
 
     // start the server
     try {
@@ -104,23 +107,24 @@ public class LogUploadImplTest {
   }
 
   /**
-   * Tests whether the transferred file via gRPC service has been done correctly.
+   * Tests the correctness of log file uploading.
    */
   @Test
   public void logUploadServerFileContentsTest() {
     // assert that upload resource file exists
     assertTrue(uploadFile.exists());
 
-    ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", TEST_PORT)
+    // open the uploader and transmit the resource file before testing
+    ManagedChannel channel = ManagedChannelBuilder
+        .forAddress("localhost", TEST_PORT)
         .usePlaintext(true)
         .build();
 
     LogUploader logUploader = new LogUploader(channel);
 
-    // test block of log uploading
     try {
-      logUploader.uploadInfo(UPLOADED_FILE_NAME);
-      logUploader.uploadLog(resourceFile.getInputstream());
+      long ticket = logUploader.uploadInfo(UPLOADED_FILE_NAME);
+      logUploader.uploadLog(ticket, resourceFile.getInputstream());
     } catch (InterruptedException ie) {
       System.err.println("Interrupted during upload!");
     }
@@ -137,6 +141,8 @@ public class LogUploadImplTest {
 
     // compare the contents of resulting file and target file
     try {
+      System.out.println(uploadFile.toString());
+      System.out.println(resultfile.toString());
       assertTrue(FileUtils.contentEquals(uploadFile, resultfile));
     } catch (IOException io) {
       fail("File contents does not match!");
@@ -151,7 +157,7 @@ public class LogUploadImplTest {
    */
   @After
   public void cleanUp() {
-    File resultFile = new File(UPLOADED_FILE_NAME);
-    resultFile.deleteOnExit();
+    File resultfile = new File(UPLOADED_FILE_NAME);
+    resultfile.deleteOnExit();
   }
 }

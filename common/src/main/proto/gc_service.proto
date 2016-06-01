@@ -8,7 +8,7 @@ import "gc_analysis.proto";
 // The client streams the file contents to the server,
 // and requests for the result status.
 service LogUpload {
-  rpc InfoUpload (FileInfo) returns (FileUploadResult) {}
+  rpc InfoUpload (FileInfo) returns (FileInfoResult) {}
   rpc LogUpload (stream UploadRequest) returns (UploadResult) {}
 }
 
@@ -17,20 +17,22 @@ message FileInfo {
   string filename = 1;
 }
 
-// The result of receiving information and opening the file.
-message FileUploadResult {
+// tells whether the file info was uploaded properly, and returns
+// the identification number
+message FileInfoResult {
   bool successful = 1;
+  int64 id = 2;
 }
 
-// The file name to upload.
+// The file contents to upload on file ID.
 message UploadRequest {
-  bytes contents = 1;
+  int64 id = 1;
+  bytes contents = 2;
 }
 
 // The response contains whether the request was successful and
 // the requestID for further identification uses.
 message UploadResult {
   bool successful = 1;
-  int32 id = 2;
-  int64 filesize = 3;
+  int64 filesize = 2;
 }

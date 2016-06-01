@@ -9,11 +9,11 @@ dependencies {
 
 apply plugin: 'application'
 
-mainClassName = "edu.kaist.algo.api.LogUploadServer"
+mainClassName = "edu.kaist.algo.api.GcToolServer"
 
 task logUploadServer(type: CreateStartScripts) {
-  mainClassName = "edu.kaist.algo.api.LogUploadServer"
-  applicationName = "logupload-Server"
+  mainClassName = "edu.kaist.algo.api.GcToolServer"
+  applicationName = "GcTool-Server"
   outputDir = new File(project.buildDir, 'tmp')
   classpath = jar.outputs.files + project.configurations.runtime
 }

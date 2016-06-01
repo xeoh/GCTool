@@ -1,7 +1,9 @@
 syntax = "proto3";
 
+option java_package = "edu.kaist.algo.service";
 option java_multiple_files = true;
-option java_package = "edu.kaist.algo.client";
+
+import "gc_analysis.proto";
 
 // The client streams the file contents to the server,
 // and requests for the result status.

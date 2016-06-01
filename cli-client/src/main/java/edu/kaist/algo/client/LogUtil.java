@@ -1,9 +1,9 @@
 package edu.kaist.algo.client;
 
-import edu.kaist.algo.model.GcAnalyzedData;
+import edu.kaist.algo.analysis.GcAnalyzedData;
+import edu.kaist.algo.analysis.GcPauseOutliers;
+import edu.kaist.algo.analysis.GcPauseStat;
 import edu.kaist.algo.model.GcEvent;
-import edu.kaist.algo.model.GcPauseOutliers;
-import edu.kaist.algo.model.GcPauseStat;
 
 import com.jakewharton.fliptables.FlipTableConverters;
 

@@ -2,8 +2,8 @@ package edu.kaist.algo.client;
 
 import static org.junit.Assert.assertEquals;
 
+import edu.kaist.algo.analysis.GcAnalyzedData;
 import edu.kaist.algo.analyzer.LogAnalyzer;
-import edu.kaist.algo.model.GcAnalyzedData;
 import edu.kaist.algo.model.GcEvent;
 
 import org.junit.Before;

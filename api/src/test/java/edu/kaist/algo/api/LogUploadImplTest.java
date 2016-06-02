@@ -1,9 +1,12 @@
 package edu.kaist.algo.api;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import edu.kaist.algo.analysis.GcAnalyzedData;
+import edu.kaist.algo.client.AnalysisDataRequester;
 import edu.kaist.algo.client.LogUploader;
 
 import io.grpc.ManagedChannel;
@@ -18,6 +21,8 @@ import org.junit.Test;
 import org.junit.rules.ExternalResource;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import edu.kaist.algo.service.AnalysisStatus;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -26,6 +31,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.EnumSet;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -43,6 +49,7 @@ public class LogUploadImplTest {
   @Rule
   public ResourceFile resourceFile = new ResourceFile(RESOURCE_FILE_NAME);
   GcToolServer server;
+  private Ticketer ticketer;
 
   /**
    * Set up the server and client to use in the test.
@@ -50,6 +57,7 @@ public class LogUploadImplTest {
   @Before
   public void setUp() {
     JedisPool jedisPool = new MockJedisPool(new JedisPoolConfig(), "localhost");
+    ticketer = new Ticketer(jedisPool);
     server = new GcToolServer(TEST_PORT, jedisPool);
 
     // start the server
@@ -150,6 +158,33 @@ public class LogUploadImplTest {
 
     // compare the size
     assertEquals(FileUtils.sizeOf(uploadFile), FileUtils.sizeOf(resultfile));
+  }
+
+  @Test
+  public void testTriggerLogAnalyzeJob() throws Exception {
+    ManagedChannel channel = ManagedChannelBuilder
+        .forAddress("localhost", TEST_PORT)
+        .usePlaintext(true)
+        .build();
+
+    // Upload log file, and wait for analyzing.
+    LogUploader logUploader = new LogUploader(channel);
+    long ticket = logUploader.uploadInfo(UPLOADED_FILE_NAME);
+    logUploader.uploadLog(ticket, resourceFile.getInputstream());
+
+    AnalysisStatus status;
+    while ((status = ticketer.getStatus(ticket)) != AnalysisStatus.COMPLETED) {
+      assertTrue(EnumSet.of(AnalysisStatus.NOT_READY, AnalysisStatus.ANALYZING).contains(status));
+      Thread.sleep(100);
+    }
+
+    AnalysisDataRequester requester = new AnalysisDataRequester(channel);
+    GcAnalyzedData result = requester.requestAnalysisData(ticket);
+    GcAnalyzedData resultFromResult = GcTestUtils.parseFromResource(RESOURCE_FILE_NAME);
+    assertNotNull(result);
+    assertEquals(resultFromResult, result);
+
+    channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
   }
 
   /**

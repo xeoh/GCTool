@@ -2,15 +2,19 @@ package edu.kaist.algo.api;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableMap;
+import com.google.protobuf.InvalidProtocolBufferException;
 
 import edu.kaist.algo.service.AnalysisStatus;
+import edu.kaist.algo.analysis.GcAnalyzedData;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.util.SafeEncoder;
 
 import java.util.Map;
 
@@ -66,7 +70,7 @@ public class Ticketer {
    *
    * @param jedisPool JedisPool instance for jedis use in this class.
    */
-  Ticketer(JedisPool jedisPool) {
+  public Ticketer(JedisPool jedisPool) {
     this.jedisPool = jedisPool;
   }
 
@@ -205,28 +209,36 @@ public class Ticketer {
   }
 
   /**
-   * Gives the name of result file where GC analysis information is stored.
+   * Returns the analyzed data for the given ticket number.
    *
    * @param ticketNum the ticket number
-   * @return the name of result file
+   * @return the analyzed data
    */
-  public String getResult(long ticketNum) {
+  public GcAnalyzedData getResult(long ticketNum) {
     try (Jedis jedis = jedisPool.getResource()) {
       String key = makeKey(ticketNum, RESULT);
-      return jedis.get(key);
+      try {
+        byte[] data = jedis.get(SafeEncoder.encode(key));
+        if (!ArrayUtils.isEmpty(data)) {
+          return GcAnalyzedData.parseFrom(data);
+        }
+      } catch (InvalidProtocolBufferException ipbe) {
+        logger.error("Cannot parse the result.", ipbe);
+      }
+      return null;
     }
   }
 
   /**
-   * Sets the name of result file where GC analysis information is stored.
+   * Sets the result of GC analysis information.
    *
    * @param ticketNum the ticket number
-   * @param result the name of result file
+   * @param result GC analysis data
    */
-  public void setResult(long ticketNum, String result) {
+  public void setResult(long ticketNum, GcAnalyzedData result) {
     try (Jedis jedis = jedisPool.getResource()) {
       String key = makeKey(ticketNum, RESULT);
-      jedis.set(key, result);
+      jedis.set(SafeEncoder.encode(key), result.toByteArray());
     }
   }
 
@@ -238,7 +250,7 @@ public class Ticketer {
   public void deleteResource(long ticketNum) {
     try (Jedis jedis = jedisPool.getResource()) {
       jedis.del(makeKey(ticketNum, STATUS));
-      jedis.del(makeKey(ticketNum, RESULT));
+      jedis.del(SafeEncoder.encode(makeKey(ticketNum, RESULT)));
       jedis.del(makeKey(ticketNum, LOGFILE));
       jedis.del(makeKey(ticketNum, META));
     }

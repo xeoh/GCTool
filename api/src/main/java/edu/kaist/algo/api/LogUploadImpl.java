@@ -2,6 +2,7 @@ package edu.kaist.algo.api;
 
 import com.google.protobuf.ByteString;
 
+import edu.kaist.algo.api.jobs.LogAnalyzeJob;
 import edu.kaist.algo.service.AnalysisStatus;
 import edu.kaist.algo.service.FileInfo;
 import edu.kaist.algo.service.FileInfoResult;
@@ -23,6 +24,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Defines a service that firstly receives the information about
@@ -34,6 +37,7 @@ public class LogUploadImpl implements LogUploadGrpc.LogUpload {
       LoggerFactory.getLogger(LogUploadImpl.class);
   private final Ticketer ticketer;
   private final Map<Long, FileOutputStream> ticketToFos = new HashMap<>();
+  private final ExecutorService backgroundExecutor = Executors.newCachedThreadPool();
 
   /**
    * Creates LogUploadImpl instance.
@@ -132,7 +136,9 @@ public class LogUploadImpl implements LogUploadGrpc.LogUpload {
       public void onCompleted() {
         ticketToFos.remove(ticketNum);
 
-        ticketer.setMeta(ticketNum, ticketer.getLogFile(ticketNum), totalsize);
+        final String logFile = ticketer.getLogFile(ticketNum);
+        ticketer.setMeta(ticketNum, logFile, totalsize);
+        backgroundExecutor.submit(new LogAnalyzeJob(ticketer, ticketNum));
 
         UploadResult result = UploadResult.newBuilder()
             .setFilesize(totalsize)

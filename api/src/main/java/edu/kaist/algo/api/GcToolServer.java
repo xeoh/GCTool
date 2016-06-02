@@ -2,6 +2,7 @@ package edu.kaist.algo.api;
 
 import com.google.common.annotations.VisibleForTesting;
 
+import edu.kaist.algo.service.LogAnalysisGrpc;
 import edu.kaist.algo.service.LogUploadGrpc;
 
 import io.grpc.Server;
@@ -51,6 +52,8 @@ public class GcToolServer {
     this.server = ServerBuilder.forPort(port)
         .addService(LogUploadGrpc
             .bindService(new LogUploadImpl(new Ticketer(jedisPool))))
+        .addService(LogAnalysisGrpc
+            .bindService(new LogAnalysisImpl(new Ticketer(jedisPool))))
         .build();
   }
 
@@ -69,7 +72,8 @@ public class GcToolServer {
     });
   }
 
-  private void stop() {
+  @VisibleForTesting
+  void stop() {
     jedisPool.destroy();
     if (server != null) {
       server.shutdown();

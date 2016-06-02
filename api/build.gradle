@@ -5,6 +5,8 @@ dependencies {
   compile 'redis.clients:jedis:2.8.1'
   compile 'com.fiftyonred:mock-jedis:0.4.0'
   testCompile project(':cli-client')
+  testCompile project(':analyzer')
+  testCompile project(':parser')
 }
 
 apply plugin: 'application'

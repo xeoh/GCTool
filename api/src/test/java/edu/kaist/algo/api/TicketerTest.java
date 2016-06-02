@@ -8,11 +8,15 @@ import static org.junit.Assert.fail;
 import com.google.common.collect.ImmutableMap;
 
 import com.fiftyonred.mock_jedis.MockJedisPool;
+
+import edu.kaist.algo.service.AnalysisStatus;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -25,8 +29,7 @@ import java.util.Map;
  */
 @RunWith(JUnit4.class)
 public class TicketerTest {
-  private static final Ticketer.Status EXAMPLE_STATUS =
-      Ticketer.Status.ANALYZING;
+  private static final AnalysisStatus EXAMPLE_STATUS = AnalysisStatus.ANALYZING;
   private static final String EXAMPLE_LOGFILE = "example.log";
   private static final String EXAMPLE_RESULT = "resultfile";
   private static final long EXAMPLE_SIZE = 6778;
@@ -83,7 +86,7 @@ public class TicketerTest {
   // the status stored does not exit
   @Test
   public void nullEnumStatusTest() {
-    Ticketer.Status status = ticketer.getStatus(2);
+    AnalysisStatus status = ticketer.getStatus(2);
     assertNull(status);
   }
 
@@ -107,7 +110,7 @@ public class TicketerTest {
   // check if the resource is properly contained in redis
   @Test
   public void getResourceTest() {
-    Ticketer.Status status = ticketer.getStatus(ticket);
+    AnalysisStatus status = ticketer.getStatus(ticket);
     assertEquals(EXAMPLE_STATUS, status);
 
     String logfileName = ticketer.getLogFile(ticket);

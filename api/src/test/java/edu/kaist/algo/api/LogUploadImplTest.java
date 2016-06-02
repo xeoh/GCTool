@@ -42,6 +42,7 @@ public class LogUploadImplTest {
   // open a sample real GC log file
   @Rule
   public ResourceFile resourceFile = new ResourceFile(RESOURCE_FILE_NAME);
+  GcToolServer server;
 
   /**
    * Set up the server and client to use in the test.
@@ -49,7 +50,7 @@ public class LogUploadImplTest {
   @Before
   public void setUp() {
     JedisPool jedisPool = new MockJedisPool(new JedisPoolConfig(), "localhost");
-    GcToolServer server = new GcToolServer(TEST_PORT, jedisPool);
+    server = new GcToolServer(TEST_PORT, jedisPool);
 
     // start the server
     try {
@@ -121,7 +122,6 @@ public class LogUploadImplTest {
         .build();
 
     LogUploader logUploader = new LogUploader(channel);
-
     try {
       long ticket = logUploader.uploadInfo(UPLOADED_FILE_NAME);
       logUploader.uploadLog(ticket, resourceFile.getInputstream());
@@ -159,5 +159,7 @@ public class LogUploadImplTest {
   public void cleanUp() {
     File resultfile = new File(UPLOADED_FILE_NAME);
     resultfile.deleteOnExit();
+
+    server.stop();
   }
 }

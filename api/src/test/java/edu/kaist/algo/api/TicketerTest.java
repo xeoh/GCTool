@@ -9,6 +9,9 @@ import com.google.common.collect.ImmutableMap;
 
 import com.fiftyonred.mock_jedis.MockJedisPool;
 
+import edu.kaist.algo.analysis.GcAnalyzedData;
+import edu.kaist.algo.analysis.GcPauseStat;
+import edu.kaist.algo.model.GcEvent;
 import edu.kaist.algo.service.AnalysisStatus;
 
 import org.junit.After;
@@ -31,7 +34,8 @@ import java.util.Map;
 public class TicketerTest {
   private static final AnalysisStatus EXAMPLE_STATUS = AnalysisStatus.ANALYZING;
   private static final String EXAMPLE_LOGFILE = "example.log";
-  private static final String EXAMPLE_RESULT = "resultfile";
+  private static final GcAnalyzedData EXAMPLE_RESULT = GcAnalyzedData.newBuilder().addPauses(
+      GcPauseStat.newBuilder().setType(GcEvent.LogType.MINOR_GC).build()).build();
   private static final long EXAMPLE_SIZE = 6778;
 
   private static Ticketer ticketer;
@@ -123,8 +127,7 @@ public class TicketerTest {
     );
     assertEquals(data, metaKey);
 
-    String resultName = ticketer.getResult(ticket);
-    assertEquals(EXAMPLE_RESULT, resultName);
+    assertEquals(EXAMPLE_RESULT, ticketer.getResult(ticket));
   }
 
   /**
@@ -142,8 +145,7 @@ public class TicketerTest {
     Map<String, String> metaKey = ticketer.getMeta(ticket);
     assertTrue(metaKey.isEmpty());
 
-    String resultName = ticketer.getResult(ticket);
-    assertNull(resultName);
+    assertNull(ticketer.getResult(ticket));
 
     ticketer.closeTicketer();
   }

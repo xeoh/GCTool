@@ -100,7 +100,7 @@ public class LogAnalysisImplTest {
     ticketer.setStatus(ANALYZING_TICKET, AnalysisStatus.ANALYZING);
     ticketer.setStatus(ERROR_TICKET, AnalysisStatus.ERROR);
 
-    ticketer.setResult(COMPLETED_TICKET, analyzedFile.filepath);
+    ticketer.setResult(COMPLETED_TICKET, analyzedFile.data);
   }
 
   /**

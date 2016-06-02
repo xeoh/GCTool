@@ -67,15 +67,11 @@ public class LogAnalysisImpl implements LogAnalysisGrpc.LogAnalysis {
       case COMPLETED:
         result.setMessage(COMPLETED_MSG);
 
-        String analyzedFileName = ticketer.getResult(request.getTicketNumber());
-
-        try (InputStream analyzedFile = FileUtils
-            .openInputStream(FileUtils.getFile(analyzedFileName))) {
-          GcAnalyzedData data = GcAnalyzedData.parseFrom(analyzedFile);
+        final GcAnalyzedData data = ticketer.getResult(request.getTicketNumber());
+        if (data != null) {
           result.setResultData(data);
           responseObserver.onNext(result.build());
-        } catch (IOException ioe) {
-          logger.error("Error occurred during reading analyzed data : " + ioe.getMessage());
+        } else {
           result.setStatus(AnalysisStatus.ERROR).setMessage(ERROR_MSG);
           responseObserver.onNext(result.build());
         }

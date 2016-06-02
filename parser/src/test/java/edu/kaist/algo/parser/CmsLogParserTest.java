@@ -57,8 +57,8 @@ public class CmsLogParserTest {
         + " (concurrent mode failure): 66466K-&gt;45817K(68288K), 0.2277434 secs] 97186K-&gt;45817K(99008K), [Metaspace: 60953K-&gt;60953K(1105920K)], 0.2280550 secs] [Times: user=0.23 sys=0.00, real=0.22 secs]\n"
         + "127.029: [GC (Allocation Failure) 127.030: [ParNew: 27319K-&gt;3391K(30720K), 0.0117355 secs] 73136K-&gt;51371K(99008K), 0.0119592 secs] [Times: user=0.02 sys=0.00, real=0.01 secs]";
     final List<GcEvent> result = parser.parse(Stream.of(log.split("\n")));
-    assertEquals(7, result.size()); // Do not count CMS-concurrent-mark yet.
-    assertGcEvent(result.get(5), GcEvent.LogType.FULL_GC, 11779, 126743, 0.2280550, 0.23, 0.00, 0.22);
+    assertEquals(8, result.size());
+    assertGcEvent(result.get(6), GcEvent.LogType.FULL_GC, 11779, 126743, 0.2280550, 0.23, 0.00, 0.22);
   }
 
   @Test
@@ -68,7 +68,7 @@ public class CmsLogParserTest {
         + ": 66466K-&gt;45817K(68288K), 0.2277434 secs] 97186K-&gt;45817K(99008K), [Metaspace: 60953K-&gt;60953K(1105920K)], 0.2280550 secs] [Times: user=0.23 sys=0.00, real=0.22 secs]\n"
         + "127.029: [Full GC 127.029: [CMS: 49837K-&gt;38462K(68288K), 0.1817762 secs] 65053K-&gt;38462K(99008K), [Metaspace: 60946K-&gt;60946K(1105920K)], 0.1819922 secs] [Times: user=0.18 sys=0.00, real=0.18 secs]";
     final List<GcEvent> result = parser.parse(Stream.of(log.split("\n")));
-    assertEquals(2, result.size()); // Do not count CMS-concurrent-mark yet.
+    assertEquals(2, result.size());
     assertGcEvent(result.get(0), GcEvent.LogType.FULL_GC, 11779, 126743, 0.2280550, 0.23, 0.00, 0.22);
     assertGcEvent(result.get(1), GcEvent.LogType.FULL_GC, 11779, 127029, 0.1819922, 0.18, 0.00, 0.18);
   }
@@ -82,8 +82,8 @@ public class CmsLogParserTest {
         + "<writer thread='11779'/>\n"
         + " (concurrent mode failure): 64750K-&gt;45276K(68288K), 0.1975301 secs] 95470K-&gt;45276K(99008K), [Metaspace: 61093K-&gt;61093K(1107968K)], 0.1979402 secs] [Times: user=0.19 sys=0.00, real=0.20 secs]";
     final List<GcEvent> result = parser.parse(Stream.of(log.split("\n")));
-    assertEquals(1, result.size()); // Do not count CMS-concurrent-mark yet.
-    assertGcEvent(result.get(0), GcEvent.LogType.FULL_GC, 11779, 55780, 0.1979402, 0.19, 0.00, 0.20);
+    assertEquals(2, result.size());
+    assertGcEvent(result.get(1), GcEvent.LogType.FULL_GC, 11779, 55780, 0.1979402, 0.19, 0.00, 0.20);
   }
 
   @Test
@@ -94,7 +94,7 @@ public class CmsLogParserTest {
         + "<writer thread='11267'/>\n"
         + "127.945: [CMS-concurrent-mark-start]";
     final List<GcEvent> result = parser.parse(Stream.of(log.split("\n")));
-    assertEquals(2, result.size()); // Do not count CMS related logs yet.
+    assertEquals(3, result.size());
     assertGcEvent(result.get(1), GcEvent.LogType.CMS_INIT_MARK, 11779, 127942, 0.0025420, 0.01, 0.00, 0.00);
   }
 
@@ -105,7 +105,7 @@ public class CmsLogParserTest {
         + "<writer thread='11267'/>\n"
         + "127.835: [CMS-concurrent-sweep-start]";
     final List<GcEvent> result = parser.parse(Stream.of(log.split("\n")));
-    assertEquals(1, result.size()); // Do not count CMS related logs yet.
+    assertEquals(2, result.size());
     assertGcEvent(result.get(0), GcEvent.LogType.CMS_FINAL_REMARK, 11779, 127794, 0.0402029, 0.06, 0.01, 0.04);
   }
 
@@ -115,7 +115,56 @@ public class CmsLogParserTest {
     final List<GcEvent> result = parser.parse(path);
     final long fullGcCount = result.stream().filter(e -> e.getLogType() == GcEvent.LogType.FULL_GC).count();
     assertEquals(5, fullGcCount); // Full GC : 4, GC -> ParNew -> CMS (concurrent mode failure) : 1
-    assertEquals(258, result.size() - fullGcCount); // Total : 263
+    final long gcEventCountWithoutCmsConcurrent =
+        result.stream().filter(e -> e.getLogType() != GcEvent.LogType.CMS_CONCURRENT).count();
+    assertEquals(258, gcEventCountWithoutCmsConcurrent - fullGcCount); // Total : 263
+  }
+
+  @Test
+  public void testCMSConcurrent() throws Exception {
+    final String log = "<writer thread='11267'/>\n"
+        + "25.908: [CMS-concurrent-sweep-start]\n"
+        + "25.969: [CMS-concurrent-sweep: 0.061/0.061 secs] [Times: user=0.21 sys=0.00, real=0.06 secs] \n"
+        + "25.969: [CMS-concurrent-reset-start]\n"
+        + "25.969: [CMS-concurrent-reset: 0.000/0.000 secs] [Times: user=0.01 sys=0.00, real=0.00 secs]";
+    final List<GcEvent> result = parser.parse(Stream.of(log.split("\n")));
+    assertEquals(4, result.size());
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, result.get(0).getLogType());
+
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, result.get(1).getLogType());
+    assertEquals(11267, result.get(1).getThread());
+    assertEquals(0.061, result.get(1).getCmsCpuTime(), 0.0001);
+    assertEquals(0.061, result.get(1).getCmsWallTime(), 0.0001);
+    assertEquals(0.21, result.get(1).getUserTime(), 0.0001);
+    assertEquals(0.06, result.get(1).getRealTime(), 0.0001);
+    assertEquals("CMS-concurrent-sweep", result.get(1).getTypeDetail());
+
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, result.get(3).getLogType());
+    assertEquals(11267, result.get(3).getThread());
+    assertEquals(0.0, result.get(3).getCmsCpuTime(), 0.0001);
+    assertEquals(0.0, result.get(3).getCmsWallTime(), 0.0001);
+    assertEquals(0.01, result.get(3).getUserTime(), 0.0001);
+    assertEquals(0.00, result.get(3).getRealTime(), 0.0001);
+    assertEquals("CMS-concurrent-reset", result.get(3).getTypeDetail());
+  }
+
+  @Test
+  public void testTypeDetail() throws Exception {
+    final String log = "<writer thread='11779'/>\n"
+        + "55.780: [Full GC (Allocation Failure) 55.780: [CMS\n"
+        + "<writer thread='11267'/>\n"
+        + "55.799: [CMS-concurrent-mark: 0.113/0.158 secs] [Times: user=0.66 sys=0.08, real=0.15 secs]\n"
+        + "<writer thread='11779'/>\n"
+        + " (concurrent mode failure): 64750K-&gt;45276K(68288K), 0.1975301 secs] 95470K-&gt;45276K(99008K), [Metaspace: 61093K-&gt;61093K(1107968K)], 0.1979402 secs] [Times: user=0.19 sys=0.00, real=0.20 secs]\n"
+        + "127.794: [GC (CMS Final Remark) [YG occupancy: 19543 K (30720 K)]127.795: [Rescan (parallel) , 0.0081128 secs]127.803: [weak refs processing, 0.0015528 secs]127.804: [class unloading, 0.0164919 secs]127.821: [scrub symbol table, 0.0126534 secs]127.834: [scrub string table, 0.0010522 secs][1 CMS-remark: 58240K(68288K)] 77784K(99008K), 0.0402029 secs] [Times: user=0.06 sys=0.01, real=0.04 secs]\n"
+        + "<writer thread='11267'/>\n"
+        + "127.835: [CMS-concurrent-sweep-start]";
+    final List<GcEvent> result = parser.parse(Stream.of(log.split("\n")));
+    assertEquals(4, result.size());
+    assertEquals("CMS-concurrent-mark", result.get(0).getTypeDetail());
+    assertEquals("Full GC (Allocation Failure); CMS (concurrent mode failure); Metaspace", result.get(1).getTypeDetail());
+    assertEquals("GC (CMS Final Remark); YG occupancy; Rescan (parallel); weak refs processing; class unloading; scrub symbol table; scrub string table; 1 CMS-remark", result.get(2).getTypeDetail());
+    assertEquals("CMS-concurrent-sweep-start", result.get(3).getTypeDetail());
   }
 
   private static void assertGcEvent(GcEvent event, GcEvent.LogType logType, int thread, long timestamp,

@@ -1,6 +1,7 @@
 package edu.kaist.algo.parser;
 
 import com.google.auto.value.AutoValue;
+import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 
 import javax.annotation.Nullable;
@@ -27,6 +28,10 @@ public abstract class GcEventNode {
   @Nullable public abstract Double sys();
 
   @Nullable public abstract Double real();
+
+  @Nullable public abstract Double cmsCpuTime();
+
+  @Nullable public abstract Double cmsWallTime();
 
   public abstract ImmutableList<GcEventNode> children();
 
@@ -57,6 +62,10 @@ public abstract class GcEventNode {
 
     public abstract Builder real(Double real);
 
+    public abstract Builder cmsCpuTime(Double cpuTime);
+
+    public abstract Builder cmsWallTime(Double wallTime);
+
     abstract ImmutableList.Builder<GcEventNode> childrenBuilder();
 
     public Builder addChild(GcEventNode child) {
@@ -65,5 +74,13 @@ public abstract class GcEventNode {
     }
 
     public abstract GcEventNode build();
+  }
+
+  public String typeAndDetail() {
+    final StringBuilder sb = new StringBuilder(type());
+    if (!Strings.isNullOrEmpty(detail())) {
+      sb.append(" (").append(detail()).append(")");
+    }
+    return sb.toString();
   }
 }

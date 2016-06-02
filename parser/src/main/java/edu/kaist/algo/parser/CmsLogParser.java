@@ -1,5 +1,6 @@
 package edu.kaist.algo.parser;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
 
 import edu.kaist.algo.model.GcEvent;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -97,20 +99,27 @@ public class CmsLogParser {
     if (result.matched) {
       final GcEventNode node = (GcEventNode) result.resultValue;
       final GcEvent.LogType logType = convertLogType(node);
+      final String typeDetails =
+          Stream.concat(Stream.of(node), node.children().stream())
+              .map(GcEventNode::typeAndDetail)
+              .collect(Collectors.joining("; "));
       final GcEvent.Builder builder = GcEvent.newBuilder()
           .setThread(currentThread)
-          .setTimestamp(node.timestamp())
+          .setTimestamp(MoreObjects.firstNonNull(node.timestamp(), 0L))
           .setLogType(logType)
-          .setPauseTime(node.elapsedTime())
-          .setUserTime(node.user())
-          .setSysTime(node.sys())
-          .setRealTime(node.real());
+          .setPauseTime(MoreObjects.firstNonNull(node.elapsedTime(), 0.0))
+          .setUserTime(MoreObjects.firstNonNull(node.user(), 0.0))
+          .setSysTime(MoreObjects.firstNonNull(node.sys(), 0.0))
+          .setRealTime(MoreObjects.firstNonNull(node.real(), 0.0))
+          .setCmsCpuTime(MoreObjects.firstNonNull(node.cmsCpuTime(), 0.0))
+          .setCmsWallTime(MoreObjects.firstNonNull(node.cmsWallTime(), 0.0))
+          .setTypeDetail(typeDetails);
       if (logType == GcEvent.LogType.CMS_FINAL_REMARK) {
         final Optional<GcEventNode> weakRefsProcessingEvent = node.children().stream()
             .filter(e -> StringUtils.equals(e.type(), "weak refs processing"))
             .findFirst();
         if (weakRefsProcessingEvent.isPresent()) {
-          builder.setRefTime(weakRefsProcessingEvent.get().elapsedTime());
+          builder.setRefTime(MoreObjects.firstNonNull(weakRefsProcessingEvent.get().elapsedTime(), 0.0));
         }
       }
       return builder.build();
@@ -137,6 +146,8 @@ public class CmsLogParser {
           return GcEvent.LogType.MINOR_GC;
         }
       }
+    } else if (StringUtils.startsWith(node.type(), "CMS-concurrent-")) {
+      return GcEvent.LogType.CMS_CONCURRENT;
     }
     throw new IllegalArgumentException("Log type must be specified. Check the log.");
   }

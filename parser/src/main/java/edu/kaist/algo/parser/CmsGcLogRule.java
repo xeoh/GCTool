@@ -26,7 +26,7 @@ import org.parboiled.annotations.SuppressSubnodes;
  *
  * <p>PEG (whitespaces are ignored for conciseness):
  * <pre>
- * InputLine <- Event UserSysRealTimes
+ * InputLine <- CMSConcurrentEvent / (Event UserSysRealTimes)
  * Event <- (Time ': ')? '[' TypeAndDetail (Event)* UsageAndElapsedTime ']'
  * Time <- Digits '.' Digits ' secs'?
  * Digits <- [0-9]+
@@ -40,6 +40,8 @@ import org.parboiled.annotations.SuppressSubnodes;
  * UsageWithTotal <- Size '(' Size ')'
  * Size <- Digits 'K '
  * UserSysRealTimes <- '[ Times: user=' Time ' sys=' Time ', real=' Time ']'
+ * CMSConcurrentEvent <- Time ': ' '[CMS-concurrent-' !':]'+
+ *                      (': ' Time '/' Time '] ' UserSysRealTimes)?
  * </pre>
  */
 @BuildParseTree
@@ -48,8 +50,7 @@ public class CmsGcLogRule extends BaseParser<Object> {
   Rule InputLine() {
     return Sequence(
         push(GcEventNode.builder()),
-        Event(),
-        UserSysRealTimes(),
+        FirstOf(CMSConcurrentEvent(), Sequence(Event(), UserSysRealTimes())),
         push(popAsNode().build())
     );
   }
@@ -67,6 +68,26 @@ public class CmsGcLogRule extends BaseParser<Object> {
             swap() && push(popAsNode().addChild(popAsNode().build()))
         ),
         " ", UsageAndElapsedTime(), "] "
+    );
+  }
+
+  Rule CMSConcurrentEvent() {
+    return Sequence(
+        TimeLong(), ": ",
+        swap() && push(popAsNode().timestamp(popAsLong())),
+        "[CMS-concurrent-",
+        OneOrMore(NoneOf(":]")),
+        push(popAsNode().type("CMS-concurrent-" + match())),
+        Optional(
+            ": ",
+            TimeDouble(),
+            "/",
+            TimeDouble(),
+            swap3() && push(popAsNode().cmsCpuTime(popAsDouble())),
+            push(popAsNode().cmsWallTime(popAsDouble())),
+            "] ",
+            UserSysRealTimes()
+        )
     );
   }
 

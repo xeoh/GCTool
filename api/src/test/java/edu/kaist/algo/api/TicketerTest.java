@@ -2,18 +2,22 @@ package edu.kaist.algo.api;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import com.fiftyonred.mock_jedis.MockJedisPool;
+import com.google.common.collect.ImmutableMap;
 
+import com.fiftyonred.mock_jedis.MockJedisPool;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+
+import java.util.Map;
+
 
 /**
  * Test the Ticketer class by using a MockJedis class so that
@@ -24,8 +28,8 @@ public class TicketerTest {
   private static final Ticketer.Status EXAMPLE_STATUS =
       Ticketer.Status.ANALYZING;
   private static final String EXAMPLE_LOGFILE = "example.log";
-  private static final String EXAMPLE_META = "metafile";
   private static final String EXAMPLE_RESULT = "resultfile";
+  private static final long EXAMPLE_SIZE = 6778;
 
   private static Ticketer ticketer;
   private static long ticket;
@@ -40,9 +44,9 @@ public class TicketerTest {
     ticketer = new Ticketer(jedisPool); // MockJedisPool constructor
     ticket = ticketer.issueTicket(); // this should be 1
     ticketer.setLogFile(ticket, EXAMPLE_LOGFILE);
-    ticketer.setMeta(ticket, EXAMPLE_META);
     ticketer.setResult(ticket, EXAMPLE_RESULT);
     ticketer.setStatus(ticket, EXAMPLE_STATUS);
+    ticketer.setMeta(ticket, EXAMPLE_LOGFILE, EXAMPLE_SIZE);
   }
 
   // issues another ticket and checks its value
@@ -109,8 +113,12 @@ public class TicketerTest {
     String logfileName = ticketer.getLogFile(ticket);
     assertEquals(EXAMPLE_LOGFILE, logfileName);
 
-    String metafileName = ticketer.getMeta(ticket);
-    assertEquals(EXAMPLE_META, metafileName);
+    Map<String, String> metaKey = ticketer.getMeta(ticket);
+    Map<String, String> data = ImmutableMap.of(
+        Ticketer.META_NAME, EXAMPLE_LOGFILE,
+        Ticketer.META_SIZE, String.valueOf(EXAMPLE_SIZE)
+    );
+    assertEquals(data, metaKey);
 
     String resultName = ticketer.getResult(ticket);
     assertEquals(EXAMPLE_RESULT, resultName);
@@ -128,8 +136,8 @@ public class TicketerTest {
     String logfileName = ticketer.getLogFile(ticket);
     assertNull(logfileName);
 
-    String metafileName = ticketer.getMeta(ticket);
-    assertNull(metafileName);
+    Map<String, String> metaKey = ticketer.getMeta(ticket);
+    assertTrue(metaKey.isEmpty());
 
     String resultName = ticketer.getResult(ticket);
     assertNull(resultName);

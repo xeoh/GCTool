@@ -1,12 +1,15 @@
 package edu.kaist.algo.api;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.collect.ImmutableMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+
+import java.util.Map;
 
 /**
  * The Ticketer class manages various information for GC log analysis.
@@ -30,6 +33,8 @@ public class Ticketer {
   static final String LOGFILE = "logfile";
   static final String META = "meta";
   static final String RESULT = "result";
+  static final String META_NAME = "meta_name";
+  static final String META_SIZE = "meta_size";
 
   private final JedisPool jedisPool;
   private final Logger logger = LoggerFactory.getLogger(Ticketer.class);
@@ -181,28 +186,30 @@ public class Ticketer {
   }
 
   /**
-   * Gives the name of metadata information file.
-   *
+   * Sets the meta-information of log file to by analyzed.
    * @param ticketNum the ticket number
-   * @return the name of the metadata information file
+   * @param name the name of uploaded log file
+   * @param size the size of log file
    */
-  public String getMeta(long ticketNum) {
+  public void setMeta(long ticketNum, String name, long size) {
     try (Jedis jedis = jedisPool.getResource()) {
       String key = makeKey(ticketNum, META);
-      return jedis.get(key);
+      Map<String, String> data = ImmutableMap.of(
+          META_NAME, name,
+          META_SIZE, String.valueOf(size)
+      );
+      jedis.hmset(key, data);
     }
   }
 
   /**
-   * Sets the name of metadata information file.
-   *
+   * Gets the meta data.
    * @param ticketNum the ticket number
-   * @param meta the name of metadata information file
+   * @return returns the map of metadata
    */
-  public void setMeta(long ticketNum, String meta) {
+  public Map<String, String> getMeta(long ticketNum) {
     try (Jedis jedis = jedisPool.getResource()) {
-      String key = makeKey(ticketNum, META);
-      jedis.set(key, meta);
+      return jedis.hgetAll(makeKey(ticketNum, META));
     }
   }
 

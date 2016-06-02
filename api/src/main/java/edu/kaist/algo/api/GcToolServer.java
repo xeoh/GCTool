@@ -15,25 +15,42 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 import java.io.IOException;
 
 /**
- * A logfile receiving server.
+ * GcToolServer class that provides various services related to analyzing
+ * Java Garbage Collector logs.
  */
 public class GcToolServer {
+  private static final String DEFAULT_REDIS_HOST = "localhost";
   private static final Logger logger = LoggerFactory.getLogger(GcToolServer.class);
+  private final JedisPool jedisPool;
   private final int port;
   private final Server server;
 
   /**
    * Constructs a server at given PORT number.
+   * Default JedisPool instance will be created.
    * @param port the port number.
    */
   public GcToolServer(int port) {
+    this(port, new JedisPool(new JedisPoolConfig(), DEFAULT_REDIS_HOST));
+  }
+
+  /**
+   * Constructor of GcToolServer having external dependency in jedisPool.
+   * @param port port number
+   * @param jedisPool JedisPool for redis server use
+   */
+  public GcToolServer(int port, JedisPool jedisPool) {
     this.port = port;
+    this.jedisPool = jedisPool;
     this.server = ServerBuilder.forPort(port)
-        .addService(LogUploadGrpc.bindService(new LogUploadImpl()))
+        .addService(LogUploadGrpc
+            .bindService(new LogUploadImpl(new Ticketer(jedisPool))))
         .build();
   }
 
@@ -53,6 +70,7 @@ public class GcToolServer {
   }
 
   private void stop() {
+    jedisPool.destroy();
     if (server != null) {
       server.shutdown();
     }

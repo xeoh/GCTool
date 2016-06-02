@@ -3,8 +3,11 @@ package edu.kaist.algo.api;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableMap;
 
+import edu.kaist.algo.service.AnalysisStatus;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -38,18 +41,6 @@ public class Ticketer {
 
   private final JedisPool jedisPool;
   private final Logger logger = LoggerFactory.getLogger(Ticketer.class);
-
-  /**
-   * Status enum class that represents the current status of GC analysis.
-   * Since redis uses only Strings to store the values, enum Satus class will
-   * make it easy to safely convert get() results into status and vice versa.
-   *
-   * <p>NOT_READY : the file to be analyzed is not ready - ticket default value
-   * COMPLETED : analysis is complete
-   * ANALYZING : in analysis process
-   * ERROR : error occurred during analysis
-   */
-  public enum Status { NOT_READY, COMPLETED, ANALYZING, ERROR }
 
   /**
    * Creates a Ticketer instance.
@@ -133,14 +124,14 @@ public class Ticketer {
    * @param ticketNum the ticket number
    * @return enum status of current GC log analysis status
    */
-  public Status getStatus(long ticketNum) {
+  public AnalysisStatus getStatus(long ticketNum) {
     try (Jedis jedis = jedisPool.getResource()) {
       String key = makeKey(ticketNum, STATUS);
       String statusString = jedis.get(key);
       if (statusString == null) {
         return null;
       }
-      return Status.valueOf(statusString);
+      return AnalysisStatus.valueOf(statusString);
     }
   }
 
@@ -152,7 +143,7 @@ public class Ticketer {
    * @param ticketNum the ticket number
    * @param status the enum Status to be set
    */
-  public void setStatus(long ticketNum, Status status) {
+  public void setStatus(long ticketNum, AnalysisStatus status) {
     try (Jedis jedis = jedisPool.getResource()) {
       String key = makeKey(ticketNum, STATUS);
       jedis.set(key, status.name());

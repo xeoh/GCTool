@@ -8,6 +8,7 @@ import io.grpc.ManagedChannelBuilder;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
@@ -17,6 +18,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import edu.kaist.algo.analysis.GcAnalyzedData;
 
 public class GcToolClient {
   private final ManagedChannel channel;
@@ -47,9 +50,22 @@ public class GcToolClient {
    */
   @VisibleForTesting
   static class ParsedOptions {
+    public enum ClientAction {
+      NONE,
+      UPLOAD_FILE,
+      REQUEST_ANALYZED_DATA
+    }
+
+    private ClientAction action;
     private int port;
     private String filename;
     private String host;
+    private long requestTicket;
+    private boolean beautifyResult;
+
+    public ClientAction getAction() {
+      return this.action;
+    }
 
     public int getPort() {
       return port;
@@ -63,27 +79,51 @@ public class GcToolClient {
       return host;
     }
 
+    public long getRequestTicket() {
+      return requestTicket;
+    }
+
+    public boolean getBeautifyResult() {
+      return beautifyResult;
+    }
+
     private ParsedOptions(ParsedOptionBuilder builder) {
+      this.action = builder.action;
       this.port = builder.port;
       this.filename = builder.filename;
       this.host = builder.host;
+      this.requestTicket = builder.requestTicket;
+      this.beautifyResult = builder.beautifyResult;
     }
 
     public static class ParsedOptionBuilder {
+      ClientAction action = ClientAction.NONE;
       private int port;
       private String filename;
       private String host;
+      private long requestTicket;
+      private boolean beautifyResult;
 
       public void setPort(int port) {
         this.port = port;
       }
 
       public void setFilename(String filename) {
+        this.action = ClientAction.UPLOAD_FILE;
         this.filename = filename;
       }
 
       public void setHost(String host) {
         this.host = host;
+      }
+
+      public void setRequestTicket(long ticket) {
+        this.action = ClientAction.REQUEST_ANALYZED_DATA;
+        this.requestTicket = ticket;
+      }
+
+      public void setBeautifyResult(boolean beautify) {
+        this.beautifyResult = beautify;
       }
 
       public ParsedOptions build() {
@@ -117,9 +157,23 @@ public class GcToolClient {
         .desc("give the absolute / relative path of the file to upload")
         .required(false)
         .build();
+    Option requestData = Option.builder("rd")
+        .hasArg(true)
+        .argName("ticket_to_request")
+        .desc("give ticket number to get analyzed data")
+        .required(false)
+        .build();
+    Option beautifyData = Option.builder()
+        .longOpt("beautify")
+        .hasArg(false)
+        .desc("beautify analyzed data")
+        .required(false)
+        .build();
     options.addOption(host);
     options.addOption(port);
     options.addOption(filename);
+    options.addOption(requestData);
+    options.addOption(beautifyData);
 
     return options;
   }
@@ -168,6 +222,14 @@ public class GcToolClient {
           System.err.println("Must give a proper existing file name.");
           return null;
         }
+      } else if (cmd.hasOption("rd")) {
+        try {
+          long ticket = Long.parseLong(cmd.getOptionValue("rd"));
+          optionBuilder.setRequestTicket(ticket);
+          optionBuilder.setBeautifyResult(cmd.hasOption("beautify"));
+        } catch (NumberFormatException nfe) {
+          System.err.println("Must give a number to option 'ticket_to_request'");
+        }
       }
 
       optionBuilder.setPort(port);
@@ -178,6 +240,12 @@ public class GcToolClient {
       System.err.println("Parsing failed. Reason : " + pe.getMessage());
     }
     return null;
+  }
+
+  // printing help
+  private static void help(Options options) {
+    HelpFormatter formatter = new HelpFormatter();
+    formatter.printHelp("Main", options);
   }
 
   private void uploadLog(ParsedOptions parsedOptions) {
@@ -204,6 +272,17 @@ public class GcToolClient {
     }
   }
 
+  private void requestAnalyzedData(ParsedOptions parsedOptions) {
+    AnalysisDataRequester requester = new AnalysisDataRequester(channel);
+    GcAnalyzedData result = requester.requestAnalysisData(parsedOptions.getRequestTicket());
+
+    if(parsedOptions.getBeautifyResult()) {
+      System.out.println(LogUtil.beautifyAnalyzedData(result));
+    } else {
+      System.out.println(result);
+    }
+  }
+
   /**
    * Main method of cli-client.
    *
@@ -215,14 +294,26 @@ public class GcToolClient {
     final ParsedOptions parsedOptions = parseOptions(options, args);
     if (parsedOptions == null) {
       System.out.println("Client cannot start due to parsing failure.");
+      help(options);
       return;
     }
 
     GcToolClient client = new GcToolClient(parsedOptions.getHost(), parsedOptions.getPort());
     System.out.println("***Client now bound to server.");
 
-    if (parsedOptions.getFilename() != null) {
-      client.uploadLog(parsedOptions);
+    switch (parsedOptions.getAction()) {
+      case UPLOAD_FILE:
+        client.uploadLog(parsedOptions);
+        break;
+      case REQUEST_ANALYZED_DATA:
+        client.requestAnalyzedData(parsedOptions);
+        break;
+      case NONE:
+        help(options);
+        break;
+      default:
+        help(options);
+        break;
     }
 
     // shutdown the client

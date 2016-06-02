@@ -1,9 +1,8 @@
 package edu.kaist.algo.api;
 
-import static edu.kaist.algo.api.Ticketer.Status.NOT_READY;
-
 import com.google.protobuf.ByteString;
 
+import edu.kaist.algo.service.AnalysisStatus;
 import edu.kaist.algo.service.FileInfo;
 import edu.kaist.algo.service.FileInfoResult;
 import edu.kaist.algo.service.LogUploadGrpc;
@@ -65,7 +64,7 @@ public class LogUploadImpl implements LogUploadGrpc.LogUpload {
     } else {
       long ticket = ticketer.issueTicket();
       ticketer.setLogFile(ticket, uploadedFile.getName());
-      ticketer.setStatus(ticket, NOT_READY);
+      ticketer.setStatus(ticket, AnalysisStatus.NOT_READY);
 
       FileInfoResult result = FileInfoResult.newBuilder()
           .setSuccessful(true)

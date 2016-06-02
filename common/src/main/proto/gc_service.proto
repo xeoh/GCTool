@@ -36,3 +36,31 @@ message UploadResult {
   bool successful = 1;
   int64 filesize = 2;
 }
+
+// Client requests for the result of log file analysis.
+service LogAnalysis {
+  rpc RequestAnalyzedData (TicketInfo) returns (AnalyzedResult) {}
+}
+
+/**
+ * NOT_READY : the file to be analyzed is not ready - ticket default value
+ * COMPLETED : analysis is complete
+ * ANALYZING : in analysis process
+ * ERROR : error occurred during analysis
+ */
+enum AnalysisStatus {
+  NOT_READY = 0;
+  COMPLETED = 1;
+  ANALYZING = 2;
+  ERROR = 3;
+}
+
+message TicketInfo {
+  int64 ticket_number = 1;
+}
+
+message AnalyzedResult {
+  AnalysisStatus status = 1;
+  GcAnalyzedData result_data = 2;
+  string message = 3;
+}

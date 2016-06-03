@@ -6,6 +6,7 @@ import edu.kaist.algo.analysis.GcAnalyzedData;
 import edu.kaist.algo.analyzer.LogAnalyzer;
 import edu.kaist.algo.model.GcEvent;
 
+import org.apache.commons.logging.Log;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -91,6 +92,60 @@ public class LogUtilTest {
     // adding one CMS_FINAL_REMARK event with pause time 10.0 sec
     eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_FINAL_REMARK)
         .setTimestamp(timestamp).setPauseTime(10.0).build());
+    timestamp += 1;
+
+    // Setting CMS_CONCURRENT evnets
+    for (int i = 0; i < 20; i++) {
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-mark-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-mark").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-preclean-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-preclean").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-abortable-preclean-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-abortable-preclean").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-sweep-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-sweep").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-reset-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.2).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-reset").build());
+      timestamp += 1;
+    }
   }
 
   /**
@@ -106,7 +161,7 @@ public class LogUtilTest {
     // align is done for each column, align width is (max length + 2)
     // calculated result is at edu.kaist.algo.analyzer.LogAnalyzerTest
     String expeectedOutput = ""
-        + "RESULT:\n"
+        + "======STW SUMMARY======\n"
         + "╔════════════════╤═══════════════════╤═══════════════════╤═══════════════════╤═══════════════════╗\n"
         + "║                │ FULL_GC           │ MINOR_GC          │ CMS_INIT_MARK     │ CMS_FINAL_REMARK  ║\n"
         + "╠════════════════╪═══════════════════╪═══════════════════╪═══════════════════╪═══════════════════╣\n"
@@ -126,6 +181,31 @@ public class LogUtilTest {
         + "╟────────────────┼───────────────────┼───────────────────┼───────────────────┼───────────────────╢\n"
         + "║ Mean 90%       │ 1.86899 ~ 2.41101 │ 1.86899 ~ 2.41101 │ 1.86899 ~ 2.41101 │ 1.86899 ~ 2.41101 ║\n"
         + "╚════════════════╧═══════════════════╧═══════════════════╧═══════════════════╧═══════════════════╝\n"
+        + "\n"
+        + "======CONCURRENT SUMMARY======\n"
+        + "╔═════════════════════════════════════════╤═══════╗\n"
+        + "║ Phase                                   │ Count ║\n"
+        + "╠═════════════════════════════════════════╪═══════╣\n"
+        + "║ CMS-concurrent-mark-start               │ 20    ║\n"
+        + "╟─────────────────────────────────────────┼───────╢\n"
+        + "║ CMS-concurrent-mark                     │ 20    ║\n"
+        + "╟─────────────────────────────────────────┼───────╢\n"
+        + "║ CMS-concurrent-preclean-start           │ 20    ║\n"
+        + "╟─────────────────────────────────────────┼───────╢\n"
+        + "║ CMS-concurrent-preclean                 │ 20    ║\n"
+        + "╟─────────────────────────────────────────┼───────╢\n"
+        + "║ CMS-concurrent-abortable-preclean-start │ 20    ║\n"
+        + "╟─────────────────────────────────────────┼───────╢\n"
+        + "║ CMS-concurrent-abortable-preclean       │ 20    ║\n"
+        + "╟─────────────────────────────────────────┼───────╢\n"
+        + "║ CMS-concurrent-sweep-start              │ 20    ║\n"
+        + "╟─────────────────────────────────────────┼───────╢\n"
+        + "║ CMS-concurrent-sweep                    │ 20    ║\n"
+        + "╟─────────────────────────────────────────┼───────╢\n"
+        + "║ CMS-concurrent-reset-start              │ 20    ║\n"
+        + "╟─────────────────────────────────────────┼───────╢\n"
+        + "║ CMS-concurrent-reset                    │ 20    ║\n"
+        + "╚═════════════════════════════════════════╧═══════╝\n"
         + "\n"
         + "[FULL_GC]\n"
         + "- Min\n"

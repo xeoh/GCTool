@@ -1,6 +1,7 @@
 package edu.kaist.algo.client;
 
 import edu.kaist.algo.analysis.GcAnalyzedData;
+import edu.kaist.algo.analysis.GcConcurrentStat;
 import edu.kaist.algo.analysis.GcPauseOutliers;
 import edu.kaist.algo.analysis.GcPauseStat;
 import edu.kaist.algo.model.GcEvent;
@@ -15,7 +16,7 @@ import java.util.Locale;
  * Util class for GC Log.
  */
 public class LogUtil {
-  private static final String RESULT_TITLE = "RESULT:\n";
+  private static final String STW_RESULT_TITLE = "======STW SUMMARY======\n";
   private static final String COUNT_HEADER = "Count";
   private static final String TOTAL_HEADER = "Total";
   private static final String SAMPLE_MEAN_HEADER = "Sample Mean";
@@ -23,6 +24,8 @@ public class LogUtil {
   private static final String SAMPLE_MEDIAN_HEADER = "Sample Median";
   private static final String MEAN_HEADER_FORMAT = "Mean %s%%";
   private static final String MEAN_FORMAT = "%s ~ %s";
+  private static final String CONCURRENT_RESULT_TITLE = "======CONCURRENT SUMMARY======\n";
+  private static final String PHASE_HEADER = "Phase";
   private static final String EXTRA_OUTPUT_HEADER_FORMAT = "[%s]\n";
   private static final String MIN_HEADER = "- Min\n";
   private static final String MAX_HEADER = "- Max\n";
@@ -77,8 +80,21 @@ public class LogUtil {
       }
     }
 
-    StringBuilder output = new StringBuilder()
-        .append(RESULT_TITLE)
+    final StringBuilder output = new StringBuilder()
+        .append(STW_RESULT_TITLE)
+        .append(FlipTableConverters.fromObjects(header, data))
+        .append('\n');
+
+    header = new String[] { PHASE_HEADER, COUNT_HEADER };
+    data = new Object[10][2];
+    int index = 0;
+    for (GcConcurrentStat stat : analyzedData.getConcurrencesList()) {
+      data[index][0] = stat.getTypeDetail();
+      data[index][1] = stat.getCount();
+      index += 1;
+    }
+
+    output.append(CONCURRENT_RESULT_TITLE)
         .append(FlipTableConverters.fromObjects(header, data))
         .append('\n');
 

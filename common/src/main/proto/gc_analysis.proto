@@ -9,6 +9,7 @@ import "gc_statistics.proto";
 // Final analyzed data for each file
 message GcAnalyzedData {
     repeated GcPauseStat pauses = 1;
+    repeated GcConcurrentStat concurrences = 2;
 }
 
 // Analyzed data for each metric (FULL_GC, MINOR_GC, CMS_INIT_MARK, CMS_FINAL_REMARK)
@@ -26,6 +27,11 @@ message GcPauseStat {
 
     repeated GcEstimatedPauseTime means = 9;
     repeated GcPauseOutliers outliers = 10;
+}
+
+message GcConcurrentStat {
+    string type_detail = 1;
+    int32 count = 2;
 }
 
 // Estimated mean of pause time

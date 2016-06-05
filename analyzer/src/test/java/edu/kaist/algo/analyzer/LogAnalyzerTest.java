@@ -93,6 +93,60 @@ public class LogAnalyzerTest {
     // adding one CMS_FINAL_REMARK event with pause time 10.0 sec
     eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_FINAL_REMARK)
         .setTimestamp(timestamp).setPauseTime(10.0).build());
+    timestamp += 1;
+
+    // Setting CMS_CONCURRENT evnets
+    for (int i = 0; i < 20; i++) {
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-mark-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-mark").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-preclean-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-preclean").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-abortable-preclean-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-abortable-preclean").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-sweep-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-sweep").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-reset-start").build());
+      timestamp += 1;
+
+      eventList.add(GcEvent.newBuilder().setLogType(GcEvent.LogType.CMS_CONCURRENT)
+          .setTimestamp(timestamp).setCmsCpuTime(0.1).setCmsWallTime(0.2)
+          .setTypeDetail("CMS-concurrent-reset").build());
+      timestamp += 1;
+    }
   }
 
   @Test
@@ -158,5 +212,38 @@ public class LogAnalyzerTest {
       assertEquals((i + 1) * 50 - 1, data.getPauses(i).getOutliers(2).getEvents(0).getTimestamp());
       assertEquals(10.0, data.getPauses(i).getOutliers(2).getEvents(0).getPauseTime(), 0.001);
     }
+
+    assertEquals(10, data.getConcurrencesCount());
+
+    assertEquals(20, data.getConcurrences(0).getCount());
+    assertEquals("CMS-concurrent-mark-start", data.getConcurrences(0).getTypeDetail());
+
+    assertEquals(20, data.getConcurrences(1).getCount());
+    assertEquals("CMS-concurrent-mark", data.getConcurrences(1).getTypeDetail());
+
+    assertEquals(20, data.getConcurrences(2).getCount());
+    assertEquals("CMS-concurrent-preclean-start", data.getConcurrences(2).getTypeDetail());
+
+    assertEquals(20, data.getConcurrences(3).getCount());
+    assertEquals("CMS-concurrent-preclean", data.getConcurrences(3).getTypeDetail());
+
+    assertEquals(20, data.getConcurrences(4).getCount());
+    assertEquals("CMS-concurrent-abortable-preclean-start",
+        data.getConcurrences(4).getTypeDetail());
+
+    assertEquals(20, data.getConcurrences(5).getCount());
+    assertEquals("CMS-concurrent-abortable-preclean", data.getConcurrences(5).getTypeDetail());
+
+    assertEquals(20, data.getConcurrences(6).getCount());
+    assertEquals("CMS-concurrent-sweep-start", data.getConcurrences(6).getTypeDetail());
+
+    assertEquals(20, data.getConcurrences(7).getCount());
+    assertEquals("CMS-concurrent-sweep", data.getConcurrences(7).getTypeDetail());
+
+    assertEquals(20, data.getConcurrences(8).getCount());
+    assertEquals("CMS-concurrent-reset-start", data.getConcurrences(8).getTypeDetail());
+
+    assertEquals(20, data.getConcurrences(9).getCount());
+    assertEquals("CMS-concurrent-reset", data.getConcurrences(9).getTypeDetail());
   }
 }

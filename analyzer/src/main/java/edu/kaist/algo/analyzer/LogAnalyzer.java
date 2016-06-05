@@ -1,6 +1,9 @@
 package edu.kaist.algo.analyzer;
 
+import com.google.common.collect.ImmutableList;
+
 import edu.kaist.algo.analysis.GcAnalyzedData;
+import edu.kaist.algo.analysis.GcConcurrentStat;
 import edu.kaist.algo.analysis.GcEstimatedPauseTime;
 import edu.kaist.algo.analysis.GcPauseOutliers;
 import edu.kaist.algo.analysis.GcPauseStat;
@@ -14,6 +17,20 @@ import java.util.stream.Collectors;
  * Class for Analyze the log.
  */
 public class LogAnalyzer {
+  private static final List<String> concurrentOrder = ImmutableList.of(
+      "CMS-concurrent-mark-start",
+      "CMS-concurrent-mark-start",
+      "CMS-concurrent-mark",
+      "CMS-concurrent-preclean-start",
+      "CMS-concurrent-preclean",
+      "CMS-concurrent-abortable-preclean-start",
+      "CMS-concurrent-abortable-preclean",
+      "CMS-concurrent-sweep-start",
+      "CMS-concurrent-sweep",
+      "CMS-concurrent-reset-start",
+      "CMS-concurrent-reset"
+  );
+
   private List<GcEvent> gcEvents;
 
   /**
@@ -48,6 +65,7 @@ public class LogAnalyzer {
         .addPauses(analyzePauseTime(GcEvent.LogType.MINOR_GC, meanLevels, outlierLevels))
         .addPauses(analyzePauseTime(GcEvent.LogType.CMS_INIT_MARK, meanLevels, outlierLevels))
         .addPauses(analyzePauseTime(GcEvent.LogType.CMS_FINAL_REMARK, meanLevels, outlierLevels))
+        .addAllConcurrences(analyzedConcurrentEvents())
         .build();
   }
 
@@ -95,5 +113,18 @@ public class LogAnalyzer {
         .addAllMeans(means)
         .addAllOutliers(outliers)
         .build();
+  }
+
+  private List<GcConcurrentStat> analyzedConcurrentEvents() {
+    return gcEvents.stream()
+        .filter(e -> e.getLogType() == GcEvent.LogType.CMS_CONCURRENT)
+        .collect(Collectors.groupingBy(GcEvent::getTypeDetail, Collectors.counting()))
+        .entrySet().stream()
+        .sorted((c1, c2) -> Integer.compare(
+            concurrentOrder.indexOf(c1.getKey()), concurrentOrder.indexOf(c2.getKey())))
+        .map(e -> GcConcurrentStat.newBuilder()
+            .setTypeDetail(e.getKey())
+            .setCount(e.getValue().intValue())
+            .build()).collect(Collectors.toList());
   }
 }

@@ -1,0 +1,12 @@
+version: '2'
+services:
+  server:
+    image: gctool/gctool-server
+    ports:
+    - "50051:50051"
+    links:
+    - redis
+    environment:
+    - REDIS_HOST=redis
+  redis:
+    image: redis

@@ -1,6 +1,7 @@
 package edu.kaist.algo.api;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.MoreObjects;
 
 import edu.kaist.algo.service.LogAnalysisGrpc;
 import edu.kaist.algo.service.LogUploadGrpc;
@@ -27,6 +28,7 @@ import java.io.IOException;
  */
 public class GcToolServer {
   private static final String DEFAULT_REDIS_HOST = "localhost";
+  private static final String DEFAULT_REDIS_PORT = "6379";
   private static final Logger logger = LoggerFactory.getLogger(GcToolServer.class);
   private final JedisPool jedisPool;
   private final int port;
@@ -117,6 +119,12 @@ public class GcToolServer {
     return port;
   }
 
+  private static JedisPool createJedisPool() {
+    String redisHost = MoreObjects.firstNonNull(System.getenv("REDIS_HOST"), DEFAULT_REDIS_HOST);
+    int redisPort = Integer.parseInt(MoreObjects.firstNonNull(System.getenv("REDIS_PORT"), DEFAULT_REDIS_PORT));
+    return new JedisPool(new JedisPoolConfig(), redisHost, redisPort);
+  }
+
   /**
    * Opens a server that receives streams of file contents, which
    * is then summed and created into an uploaded GC logfile.
@@ -133,7 +141,7 @@ public class GcToolServer {
     }
 
     // start the server
-    final GcToolServer serverInstance = new GcToolServer(port);
+    final GcToolServer serverInstance = new GcToolServer(port, createJedisPool());
     try {
       serverInstance.start();
       serverInstance.blockUntilShutdown();

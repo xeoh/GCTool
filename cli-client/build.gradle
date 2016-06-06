@@ -6,18 +6,14 @@ dependencies {
   testCompile project(':analyzer')
 }
 
-apply plugin: 'application'
+ext.mainClassName = "edu.kaist.algo.client.GcToolClient"
 
-mainClassName = "edu.kaist.algo.client.GcToolClient"
-
-task logUploadClient(type: CreateStartScripts) {
-  mainClassName = "edu.kaist.algo.client.GcToolClient"
-  applicationName = "GcTool-Client"
-  outputDir = new File(project.buildDir, 'tmp')
-  classpath = jar.outputs.files + project.configurations.runtime
+jar {
+  manifest {
+    attributes "Main-Class": "$mainClassName"
+  }
+  from {
+    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+  }
 }
 
-applicationDistribution.into("bin") {
-  from(logUploadClient)
-  fileMode = 0755
-}

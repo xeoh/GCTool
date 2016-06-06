@@ -13,6 +13,7 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.io.FileUtils;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -289,6 +290,10 @@ public class GcToolClient {
    * @param args argument of clients
    */
   public static void main(String[] args) {
+    // since grpc uses j.u.l logger, redirect j.u.l to slf4j
+    SLF4JBridgeHandler.removeHandlersForRootLogger();
+    SLF4JBridgeHandler.install();
+
     // parse command-line options
     final Options options = makeOptions();
     final ParsedOptions parsedOptions = parseOptions(options, args);

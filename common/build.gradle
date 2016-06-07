@@ -1,5 +1,6 @@
 apply plugin: 'com.google.protobuf'
 apply plugin: 'idea'
+apply plugin: 'net.minecrell.licenser'
 
 buildscript {
   dependencies {
@@ -38,4 +39,8 @@ idea {
     sourceDirs += file("${projectDir}/src/generated/main/grpc")
     sourceDirs += file("${projectDir}/src/generated/main/java")
   }
+}
+
+license {
+  header = rootProject.file("LICENSE")
 }

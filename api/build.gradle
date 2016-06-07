@@ -1,3 +1,5 @@
+apply plugin: 'net.minecrell.licenser'
+
 dependencies {
   compile project(':common')
   compile project(':parser')
@@ -23,4 +25,8 @@ task logUploadServer(type: CreateStartScripts) {
 applicationDistribution.into("bin") {
   from(logUploadServer)
   fileMode = 0755
+}
+
+license {
+  header = rootProject.file("LICENSE")
 }

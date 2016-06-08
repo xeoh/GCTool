@@ -4,6 +4,25 @@ option java_package = "edu.kaist.algo.model";
 option java_multiple_files = true;
 
 message GcEvent {
-    uint64 timestamp = 1;
-    uint32 thread = 2;
+    enum LogType {
+        NONE = 0;
+        FULL_GC = 1;                            // Full gc
+        MINOR_GC = 2;                           // Minor gc
+        CMS_INIT_MARK = 3;                      // CMS initial mark phase
+        CMS_FINAL_REMARK = 4;                   // CMS final remark phase
+        CMS_CONCURRENT = 5;                     // CMS concurrent
+    }
+
+    uint32 thread = 1;                          // thread ID
+    uint64 timestamp = 2;                       // time stamp(time since JVM startup)
+    string datetime = 3;                        // utc time
+    LogType log_type = 4;                       // log type
+    double pause_time = 5;                      // duration of GC event in seconds
+    double user_time = 6;                       // total CPU time of GC event
+    double sys_time = 7;                        // time spent in OS call or waiting for system event
+    double real_time = 8;                       // (user_time + sys_tim) / threads# + alpha
+    double ref_time = 9;                        // reference processing time
+    double cms_cpu_time = 10;                   // CMS concurrent event cpu time
+    double cms_wall_time = 11;                  // CMS concurrent event wall time
+    string type_detail = 12;                     // detailed type info
 }

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "edu.kaist.algo.statistics";
+option java_multiple_files = true;
+
+message MeanRange {
+    double min = 1;
+    double max = 2;
+}

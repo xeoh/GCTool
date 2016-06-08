@@ -1,4 +1,26 @@
+apply plugin: 'net.minecrell.licenser'
+
 dependencies {
   compile project(':common')
   compile 'commons-cli:commons-cli:1.3.1'
+  compile 'commons-io:commons-io:2.4'
+  compile 'com.jakewharton.fliptables:fliptables:1.0.2'
+  compile 'org.slf4j:jul-to-slf4j:1.7.21'
+  compile 'org.slf4j:slf4j-nop:1.7.21'
+  testCompile project(':analyzer')
+}
+
+ext.mainClassName = "edu.kaist.algo.client.GcToolClient"
+
+jar {
+  manifest {
+    attributes "Main-Class": "$mainClassName"
+  }
+  from {
+    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+}
+
+license {
+  header = rootProject.file("LICENSE")
 }

@@ -56,8 +56,7 @@ public class LogAnalysisImpl implements LogAnalysisGrpc.LogAnalysis {
   public void requestAnalyzedData(TicketInfo request,
                                   StreamObserver<AnalyzedResult> responseObserver) {
     AnalysisStatus status = ticketer.getStatus(request.getTicketNumber());
-    AnalyzedResult.Builder result = AnalyzedResult.newBuilder()
-        .setStatus(status);
+    AnalyzedResult.Builder result = AnalyzedResult.newBuilder().setStatus(status);
 
     switch (status) {
       case NOT_READY:
@@ -78,11 +77,10 @@ public class LogAnalysisImpl implements LogAnalysisGrpc.LogAnalysis {
         final GcAnalyzedData data = ticketer.getResult(request.getTicketNumber());
         if (data != null) {
           result.setResultData(data);
-          responseObserver.onNext(result.build());
         } else {
           result.setStatus(AnalysisStatus.ERROR).setMessage(ERROR_MSG);
-          responseObserver.onNext(result.build());
         }
+        responseObserver.onNext(result.build());
         break;
       default:
         break;

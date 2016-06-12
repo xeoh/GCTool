@@ -9,6 +9,7 @@
 package edu.kaist.algo.parser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import com.google.common.io.Resources;
 
@@ -27,6 +28,198 @@ import java.util.stream.Stream;
 public class CmsLogParserTest {
 
   private final CmsLogParser parser = new CmsLogParser();
+
+  @Test
+  public void testParseWriterThreadId() throws Exception {
+    int writerThreadId = parser.parseWriterThreadId("<writer thread='11267'/>");
+    assertEquals(11267, writerThreadId);
+
+    writerThreadId = parser.parseWriterThreadId("<writer thread='11111'/>");
+    assertEquals(11111, writerThreadId);
+  }
+
+  @Test
+  public void testParseWriterThreadIdWithIllegalLog() throws Exception {
+    int writerThreadId = parser.parseWriterThreadId("<writer thread='111138794732894792111'/>");
+    assertEquals(-1, writerThreadId);
+
+    writerThreadId = parser.parseWriterThreadId("<writer threadId='asdf'/>");
+    assertEquals(-1, writerThreadId);
+  }
+
+  @Test
+  public void testParseLineShouldParseAndStoreCurrentThreadId() throws Exception {
+    assertNull(parser.parseLine("<writer thread='11111'/>"));
+    assertEquals(11111, parser.currentThread);
+
+    GcEvent gcEvent = parser.parseLine("25.908: [CMS-concurrent-sweep-start]");
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, gcEvent.getLogType());
+    assertEquals(11111, parser.currentThread);
+    assertEquals(11111, gcEvent.getThread());
+
+    parser.parseLine("<writer thread='asdf'/>");
+    assertEquals(-1, parser.currentThread);
+
+    assertNull(parser.parseLine("<writer thread='12345'/>"));
+    assertEquals(12345, parser.currentThread);
+  }
+
+  @Test
+  public void testParseLineShouldHandleMultiLineLog() throws Exception {
+    assertNull(parser.parseLine("<writer thread='11779'/>"));
+    assertEquals(11779, parser.currentThread);
+
+    // multi line starts
+    assertNull(parser.parseLine("55.780: [Full GC (Allocation Failure) 55.780: [CMS"));
+    assertEquals(11779, parser.currentThread);
+
+    // other thread intervenes
+    assertNull(parser.parseLine("<writer thread='11267'/>"));
+    assertEquals(11267, parser.currentThread);
+    GcEvent gcEvent = parser.parseLine("55.799: [CMS-concurrent-mark: 0.113/0.158 secs] "
+                + "[Times: user=0.66 sys=0.08, real=0.15 secs]");
+    assertEquals(11267, parser.currentThread);
+    assertEquals(11267, gcEvent.getThread());
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, gcEvent.getLogType());
+
+    // multi line joins
+    assertNull(parser.parseLine("<writer thread='11779'/>"));
+    assertEquals(11779, parser.currentThread);
+
+    gcEvent = parser.parseLine(" (concurrent mode failure): 64750K-&gt;45276K(68288K), "
+        + "0.1975301 secs] 95470K-&gt;45276K(99008K), "
+        + "[Metaspace: 61093K-&gt;61093K(1107968K)], 0.1979402 secs] "
+        + "[Times: user=0.19 sys=0.00, real=0.20 secs]");
+    assertEquals(11779, parser.currentThread);
+    assertEquals(11779, gcEvent.getThread());
+    assertEquals(GcEvent.LogType.FULL_GC, gcEvent.getLogType());
+
+    // again single line
+    gcEvent = parser.parseLine("43.509: [CMS-concurrent-sweep-start]");
+    assertEquals(11779, parser.currentThread);
+    assertEquals(11779, gcEvent.getThread());
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, gcEvent.getLogType());
+  }
+
+  @Test
+  public void testParseGcEvent() throws Exception {
+    GcEvent gcEvent = parser.parseGcEvent("126.426: [GC (Allocation Failure) 126.426: "
+        + "[ParNew: 30720K-&gt;3392K(30720K), 0.0128764 secs] "
+        + "83156K-&gt;58798K(99008K), 0.0131301 secs] "
+        + "[Times: user=0.02 sys=0.00, real=0.01 secs]");
+    assertGcEvent(gcEvent, GcEvent.LogType.MINOR_GC, 0, 126426, 0.0131301, 0.02, 0.00, 0.01);
+
+    gcEvent = parser.parseGcEvent("25.969: [CMS-concurrent-reset: 0.000/0.000 secs] "
+        + "[Times: user=0.01 sys=0.00, real=0.00 secs]");
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, gcEvent.getLogType());
+    assertEquals(0.0, gcEvent.getCmsCpuTime(), 0.0001);
+    assertEquals(0.0, gcEvent.getCmsWallTime(), 0.0001);
+    assertEquals(0.01, gcEvent.getUserTime(), 0.0001);
+    assertEquals(0.00, gcEvent.getRealTime(), 0.0001);
+    assertEquals("CMS-concurrent-reset", gcEvent.getTypeDetail());
+  }
+
+  @Test
+  public void testParseGcEventWithIllegalLine() throws Exception {
+    assertNull(parser.parseGcEvent("hello world"));
+
+    String noTimestamp = "[CMS-concurrent-abortable-preclean: 0.285/0.355 secs] [Times: user=0.72 sys=0.06, real=0.36 secs]";
+    assertNull(parser.parseGcEvent(noTimestamp));
+
+    String illegalTimestamp = "14.323  : [CMS-concurrent-abortable-preclean: 0.285/0.355 secs] [Times: user=0.72 sys=0.06, real=0.36 secs]";
+    assertNull(parser.parseGcEvent(illegalTimestamp));
+
+    illegalTimestamp = "4346: [CMS-concurrent-abortable-preclean: 0.285/0.355 secs] [Times: user=0.72 sys=0.06, real=0.36 secs]";
+    assertNull(parser.parseGcEvent(illegalTimestamp));
+  }
+
+  @Test
+  public void testConvertLogType() throws Exception {
+    GcEventNode fullGcNode = GcEventNode.builder().type("Full GC").build();
+    assertEquals(GcEvent.LogType.FULL_GC, parser.convertLogType(fullGcNode));
+
+    GcEventNode initialMarkNode = GcEventNode.builder()
+        .type("GC").detail("CMS Initial Mark").build();
+    assertEquals(GcEvent.LogType.CMS_INIT_MARK, parser.convertLogType(initialMarkNode));
+
+    GcEventNode finalRemarkNode = GcEventNode.builder()
+        .type("GC").detail("CMS Final Remark").build();
+    assertEquals(GcEvent.LogType.CMS_FINAL_REMARK, parser.convertLogType(finalRemarkNode));
+
+    GcEventNode parNewCmsFullGcNode = GcEventNode.builder()
+        .type("GC")
+        .addChild(GcEventNode.builder().type("ParNew").build())
+        .addChild(GcEventNode.builder().type("CMS").build())
+        .build();
+    assertEquals(GcEvent.LogType.FULL_GC, parser.convertLogType(parNewCmsFullGcNode));
+
+    GcEventNode parNewNode = GcEventNode.builder()
+        .type("GC")
+        .addChild(GcEventNode.builder().type("ParNew").build())
+        .build();
+    assertEquals(GcEvent.LogType.MINOR_GC, parser.convertLogType(parNewNode));
+
+    GcEventNode cmsMarkStartNode = GcEventNode.builder()
+        .type("CMS-concurrent-mark-start")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsMarkStartNode));
+
+    GcEventNode cmsMarkNode = GcEventNode.builder()
+        .type("CMS-concurrent-mark")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsMarkNode));
+
+    GcEventNode cmsPrecleanStartNode = GcEventNode.builder()
+        .type("CMS-concurrent-preclean-start")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsPrecleanStartNode));
+
+    GcEventNode cmsPrecleanNode = GcEventNode.builder()
+        .type("CMS-concurrent-preclean")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsPrecleanNode));
+
+    GcEventNode cmsAbortablePrecleanStartNode = GcEventNode.builder()
+        .type("CMS-concurrent-abortable-preclean-start")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsAbortablePrecleanStartNode));
+
+    GcEventNode cmsAbortablePrecleanNode = GcEventNode.builder()
+        .type("CMS-concurrent-abortable-preclean")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsAbortablePrecleanNode));
+
+    GcEventNode cmsSweepStartNode = GcEventNode.builder()
+        .type("CMS-concurrent-sweep-start")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsSweepStartNode));
+
+    GcEventNode cmsSweepNode = GcEventNode.builder()
+        .type("CMS-concurrent-sweep")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsSweepNode));
+
+    GcEventNode cmsResetStartNode = GcEventNode.builder()
+        .type("CMS-concurrent-reset-start")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsResetStartNode));
+
+    GcEventNode cmsResetNode = GcEventNode.builder()
+        .type("CMS-concurrent-reset")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsResetNode));
+
+    GcEventNode cmsCustomNode = GcEventNode.builder()
+        .type("CMS-concurrent-custom-type-is-allowed")
+        .build();
+    assertEquals(GcEvent.LogType.CMS_CONCURRENT, parser.convertLogType(cmsCustomNode));
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testConvertLogTypeWithIllegalType() throws Exception {
+    GcEventNode illegalNode = GcEventNode.builder().type("illegal-type").build();
+    parser.convertLogType(illegalNode);
+  }
 
   @Test
   public void testParseMinorGc() throws Exception {

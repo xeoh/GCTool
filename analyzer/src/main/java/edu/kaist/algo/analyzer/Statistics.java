@@ -122,7 +122,7 @@ public class Statistics {
     if (data.size() % 2 == 0) {
       return (sortedData.get(midPos - 1) + sortedData.get(midPos)) / 2;
     }
-    return data.get(midPos);
+    return sortedData.get(midPos);
   }
 
   /**

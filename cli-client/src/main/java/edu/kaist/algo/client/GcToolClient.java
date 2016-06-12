@@ -238,6 +238,7 @@ public class GcToolClient {
           optionBuilder.setBeautifyResult(cmd.hasOption("beautify"));
         } catch (NumberFormatException nfe) {
           System.err.println("Must give a number to option 'ticket_to_request'");
+          return null;
         }
       }
 
@@ -271,8 +272,7 @@ public class GcToolClient {
     long ticket = logUploader.uploadInfo(parsedOptions.getFilename());
 
     // Send and upload the file
-    try {
-      FileInputStream inputStream = FileUtils.openInputStream(logfile);
+    try (FileInputStream inputStream = FileUtils.openInputStream(logfile)) {
       logUploader.uploadLog(ticket, inputStream);
     } catch (InterruptedException ie) {
       System.out.println("File upload failed due to interruption.");
@@ -285,7 +285,7 @@ public class GcToolClient {
     AnalysisDataRequester requester = new AnalysisDataRequester(channel);
     GcAnalyzedData result = requester.requestAnalysisData(parsedOptions.getRequestTicket());
 
-    if(parsedOptions.getBeautifyResult()) {
+    if (parsedOptions.getBeautifyResult()) {
       System.out.println(LogUtil.beautifyAnalyzedData(result));
     } else {
       System.out.println(result);
@@ -320,9 +320,6 @@ public class GcToolClient {
         break;
       case REQUEST_ANALYZED_DATA:
         client.requestAnalyzedData(parsedOptions);
-        break;
-      case NONE:
-        help(options);
         break;
       default:
         help(options);

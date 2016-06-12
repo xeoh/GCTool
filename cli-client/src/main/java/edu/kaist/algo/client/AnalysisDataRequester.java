@@ -19,8 +19,6 @@ import edu.kaist.algo.service.TicketInfo;
  * Class to request analyzed data of log file.
  */
 public class AnalysisDataRequester {
-  private static final String UNRECOGNIZED_RESULT_MSG = "Unknown status received.";
-
   private final LogAnalysisGrpc.LogAnalysisBlockingStub blockingStub;
 
   public AnalysisDataRequester(ManagedChannel channel) {
@@ -50,7 +48,7 @@ public class AnalysisDataRequester {
       case COMPLETED:
         break;
       default:
-        System.out.println(UNRECOGNIZED_RESULT_MSG);
+        System.out.println("Unknown status received.");
         return null;
     }
     return result.getResultData();

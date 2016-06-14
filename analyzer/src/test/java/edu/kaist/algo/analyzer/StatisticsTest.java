@@ -64,9 +64,9 @@ public class StatisticsTest {
     testSetOdd = new ArrayList<>();
     testSetNone = new ArrayList<>();
 
-    TwoValue e1 = new TwoValue(1,2);
-    TwoValue e2 = new TwoValue(2,3);
-    TwoValue e3 = new TwoValue(3,4);
+    TwoValue e1 = new TwoValue(1,3);
+    TwoValue e2 = new TwoValue(2,4);
+    TwoValue e3 = new TwoValue(3,2);
     TwoValue e4 = new TwoValue(4,5);
 
     testSetEven.add(e1);
